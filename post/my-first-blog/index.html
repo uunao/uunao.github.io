@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>My First Blog | 小九的博客</title>
-    <meta property="og:title" content="My First Blog - 小九的博客">
+    <title>github上创建自己的博客 | 小九的博客</title>
+    <meta property="og:title" content="github上创建自己的博客 - 小九的博客">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2021-04-21T14:28:08&#43;08:00'>
@@ -18,10 +18,10 @@
         
     <meta property="article:modified_time" content='2021-04-21T14:28:08&#43;08:00'>
         
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
-    <meta name="description" content="My First Blog">
+    <meta name="Keywords" content="golang,go语言,go语言笔记,小九,java,博客,软件架构">
+    <meta name="description" content="github上创建自己的博客">
         
-    <meta name="author" content="飞雪无情">
+    <meta name="author" content="狗子">
     <meta property="og:url" content="uunao.github.io/post/my-first-blog/">
     <link rel="shortcut icon" href='/uunao.github.io/favicon.ico'  type="image/x-icon">
 
@@ -52,7 +52,7 @@
                         小九的博客
                     </a>
                 
-                <p class="description">专注于Android、Java、Go语言(golang)、移动互联网、项目管理、软件架构</p>
+                <p class="description">热衷于Java、Go语言(golang)、移动互联网、项目管理、软件架构</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -173,7 +173,7 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">My First Blog</h1>
+            <h1 class="post-title">github上创建自己的博客</h1>
         </header>
         <date class="post-meta meta-date">
             2021年4月21日
@@ -187,13 +187,92 @@
         
         
         <div class="post-content">
-            
+            <p><strong>提示</strong>：教程默认你已经安装了 git,hugo
+安装参考官网：
+git地址：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="Title">https://git-scm.com/book/zh/v2/起步-安装-Git-Git</a>
+hugo地址：<a href="https://gohugo.io/getting-started/installing/" title="Title">https://gohugo.io/getting-started/installing/</a></p>
+<p>mac用户可以使用Homebrew安装</p>
+<pre><code>brew install git
+brew install hugo
+</code></pre><hr>
+<p>#下面会分四步介绍
+##1.配置github</p>
+<p>①
+②
+③
+④
+⑤
+⑥
+⑦
+⑧
+⑨
+⑩
+###1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a>
+###2.新建博客发布仓库
+这里建议新建2个仓库，和fork一个主题
+一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)
+####① 新建
+uunao.github.io
+<a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a>
+Settings &ndash;&gt;GitHub Pages</p>
+<p>3.新建博客源代码
+myblog
+<a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
+<p>4.fork我们相中的主题到本地，方便以后自己修改
+<a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a></p>
+<p>##二.配置本地</p>
+<p>1.新建站点
+hugo new site myblog
+2.新建博客目录
+cd myblog
+3.初花git
+git init<br>
+4.clone 主题为子模块
+git submodule add <a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a> themes/maupassant
+5.复制主题配置文件
+cp themes/maupassant/exampleSite/config.toml .
+6.编辑配置文件</p>
+<pre><code>vim config.toml
+
+baseURL = &quot;uunao.github.io&quot; #我们申请的github发布仓库地址
+languageCode = &quot;zh-CN&quot;
+title = &quot;小九的博客&quot;       #博客的名字
+theme = &quot;maupassant&quot;     #主题名称 -无需修改
+</code></pre><p>##三.发布</p>
+<p>9.预览效果
+hugo server
+http://localhost:1313</p>
+<p>10.发布博文
+把博客仓库已子模块的形式添加到public下
+git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public
+执行 hugo 命令
+默认会在public下生成很多编译好的文件</p>
+<pre><code>git add *
+git commit -m &quot;init&quot;
+git push
+</code></pre><p>11.最后把源码提交到myblog仓库备份
+cd myblog
+git remote add origin <a href="https://github.com/uunao/blog.git">https://github.com/uunao/blog.git</a>
+git add .
+git commint -m &ldquo;init&rdquo;  #init 是每次提交的备注，可自定义
+git checkout main
+git branch &ndash;set-upstream-to=origin/main main</p>
+<p>##四.写文章并发布</p>
+<p>7.新增博文 &ndash;默认会生成到content目录下面
+hugo new post/my-first-blog.md
+8.编辑文件，把草稿状态改成false。文章才能显示</p>
+<pre><code>vim content/post/my-first-blog.md 
+
+title: &quot;My First Blog&quot;
+date: 2021-04-21T14:28:08+08:00
+draft: false   #需要改成false
+</code></pre>
         </div>
 
         
 <div class="post-archive">
     <ul class="post-copyright">
-        <li><strong>原文作者：</strong><a rel="author" href="uunao.github.io">飞雪无情</a></li>
+        <li><strong>原文作者：</strong><a rel="author" href="uunao.github.io">狗子</a></li>
         <li style="word-break:break-all"><strong>原文链接：</strong><a href="uunao.github.io/post/my-first-blog/">uunao.github.io/post/my-first-blog/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
@@ -249,7 +328,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="uunao.github.io/uunao.github.io">小九的博客 By 飞雪无情</a>
+        &copy; 2021 <a href="uunao.github.io/uunao.github.io">小九的博客 By 狗子</a>
         
     </div>
     <br />
@@ -307,44 +386,13 @@
 <ul class="widget-list">
     
     <li>
-        <a href="uunao.github.io/post/my-first-blog/" title="My First Blog">My First Blog</a>
+        <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客">github上创建自己的博客</a>
     </li>
     
 </ul>
     </section>
 
     
-<section class="widget">
-    <h3 class="widget-title" style="color:red">福利派送</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a href="https://www.aliyun.com/minisite/goods?userCode=jdg9oj97&amp;share_source=copy_link" title="【2019双12】ALL IN CLoud 低至1折" target="_blank" style="color:red">
-                
-                    <img src="https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg">
-                
-            </a>
-        </li>
-        
-        <li>
-            <a href="https://cloud.tencent.com/act/cps/redirect?redirect=1048&amp;cps_key=14ff722692ac784fa8c3301c8c28d924&amp;from=console" title="助力产业智慧升级，云服务器首年88元起，更有千元代金券礼包免费领！" target="_blank" style="color:red">
-                
-                    <img src="https://upload-dianshi-1255598498.file.myqcloud.com/345-7c71532bd4935fbdd9a67c1a71e577b1767b805c.200%E7%89%88%E6%9C%ACB.jpg">
-                
-            </a>
-        </li>
-        
-        <li>
-            <a href="https://www.aliyun.com/acts/limit-buy?userCode=jdg9oj97" title="【渠道专享低折扣】11月特惠 限时2折" target="_blank" style="color:red">
-                
-                    <img src="https://img.alicdn.com/tfs/TB1hblJl7Y2gK0jSZFgXXc5OFXa-750-400.jpg">
-                
-            </a>
-        </li>
-        
-    </ul>
-</section>
-
 
     <section class="widget">
         <h3 class="widget-title"><a href='/uunao.github.io/categories/'>分类</a></h3>
@@ -366,11 +414,11 @@
     <ul class="widget-list">
         
         <li>
-            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+            <a target="_blank" href="https://www.tsui.work" title="小九的博客">小九的博客</a>
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://github" title="GitHub">GitHub</a>
         </li>
         
     </ul>

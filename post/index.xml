@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>My First Blog</title>
+      <title>github上创建自己的博客</title>
       <link>uunao.github.io/post/my-first-blog/</link>
       <pubDate>Wed, 21 Apr 2021 14:28:08 +0800</pubDate>
       
       <guid>uunao.github.io/post/my-first-blog/</guid>
-      <description></description>
+      <description>提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Git hugo地址：https://gohugo.io/getting-started/installing/ mac用户可以使用Homebrew</description>
     </item>
     
   </channel>
