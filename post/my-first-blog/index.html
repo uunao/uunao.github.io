@@ -141,7 +141,20 @@
 <div class="post-toc" style="position: absolute; top: 188px;">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-        <nav id="TableOfContents"></nav>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1配置github">1.配置github</a>
+      <ul>
+        <li><a href="#1注册账号-github地址httpsgithubcomhttpsgithubcom-title">1.注册账号 GitHub地址：https://github.com/</a></li>
+        <li><a href="#2新建博客发布仓库">2.新建博客发布仓库</a></li>
+      </ul>
+    </li>
+    <li><a href="#二配置本地">二.配置本地</a></li>
+    <li><a href="#三发布">三.发布</a></li>
+    <li><a href="#四写文章并发布">四.写文章并发布</a></li>
+    <li><a href="#五git提交异常">五.git提交异常</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 <script type="text/javascript">
@@ -195,11 +208,11 @@ hugo地址：<a href="https://gohugo.io/getting-started/installing/" title="Titl
 <pre><code>brew install git
 brew install hugo
 </code></pre><hr>
-<p>#下面会分四步介绍
-##1.配置github</p>
-<p>###1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a>
-###2.新建博客发布仓库
-这里建议新建2个仓库，和fork一个主题
+<h1 id="下面会分四步介绍">下面会分四步介绍</h1>
+<h2 id="1配置github">1.配置github</h2>
+<h3 id="1注册账号-github地址httpsgithubcomhttpsgithubcom-title">1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a></h3>
+<h3 id="2新建博客发布仓库">2.新建博客发布仓库</h3>
+<p>这里建议新建2个仓库，和fork一个主题
 一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)
 ####① 新建
 uunao.github.io
@@ -210,7 +223,7 @@ myblog
 <a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
 <p>4.fork我们相中的主题到本地，方便以后自己修改
 <a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a></p>
-<p>##二.配置本地</p>
+<h2 id="二配置本地">二.配置本地</h2>
 <p>1.新建站点
 hugo new site myblog
 2.新建博客目录
@@ -228,11 +241,11 @@ baseURL = &quot;uunao.github.io&quot; #我们申请的github发布仓库地址
 languageCode = &quot;zh-CN&quot;
 title = &quot;小九的博客&quot;       #博客的名字
 theme = &quot;maupassant&quot;     #主题名称 -无需修改
-</code></pre><p>##三.发布</p>
-<p>9.预览效果
+</code></pre><h2 id="三发布">三.发布</h2>
+<p>1.预览效果
 hugo server
 http://localhost:1313</p>
-<p>10.发布博文
+<p>2.发布博文
 把博客仓库已子模块的形式添加到public下
 git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public
 执行 hugo 命令
@@ -240,23 +253,37 @@ git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https:/
 <pre><code>git add *
 git commit -m &quot;init&quot;
 git push  
-</code></pre><p>11.最后把源码提交到myblog仓库备份
+</code></pre><p>3.最后把源码提交到myblog仓库备份
 cd myblog
 git remote add origin <a href="https://github.com/uunao/blog.git">https://github.com/uunao/blog.git</a>
 git add .
 git commint -m &ldquo;init&rdquo;  #init 是每次提交的备注，可自定义
 git checkout main
 git branch &ndash;set-upstream-to=origin/main main</p>
-<p>##四.写文章并发布</p>
-<p>7.新增博文 &ndash;默认会生成到content目录下面
+<h2 id="四写文章并发布">四.写文章并发布</h2>
+<p>1.新增博文 &ndash;默认会生成到content目录下面
 hugo new post/my-first-blog.md
-8.编辑文件，把草稿状态改成false。文章才能显示</p>
+2.编辑文件，把草稿状态改成false。文章才能显示</p>
 <pre><code>vim content/post/my-first-blog.md 
 
 title: &quot;My First Blog&quot;
 date: 2021-04-21T14:28:08+08:00
 draft: false   #需要改成false
-</code></pre><p>##五.git提交异常</p>
+</code></pre><p>3.预览效果
+hugo server</p>
+<p>4.生成最终需要发布的页面
+hugo</p>
+<p>5.提交到博客仓库</p>
+<pre><code>cd public #进入myblo/public目录下
+git add .
+git commit -m &quot;my first blog&quot;
+git push
+</code></pre><p>6.提交源码到源码仓库</p>
+<pre><code>cd ..  #定位到myblog目录下
+git add .
+git commit -m &quot;my first blog&quot;
+git push
+</code></pre><h2 id="五git提交异常">五.git提交异常</h2>
 <pre><code>git push
 </code></pre><p>
         <img class="mx-auto" alt="../../static/images/my-first-blog/20190623184825880.png" src="../../static/images/my-first-blog/20190623184825880.png" />   
@@ -271,7 +298,7 @@ git pull --rebase origin master  #远程库中的更新合并到本地库中,然
 
 再执行上面的命令就不报错了
 git push --set-upstream origin main  #把本地分支合并到main上
- #
+ 
 </code></pre>
         </div>
 
