@@ -197,17 +197,7 @@ brew install hugo
 </code></pre><hr>
 <p>#下面会分四步介绍
 ##1.配置github</p>
-<p>①
-②
-③
-④
-⑤
-⑥
-⑦
-⑧
-⑨
-⑩
-###1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a>
+<p>###1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a>
 ###2.新建博客发布仓库
 这里建议新建2个仓库，和fork一个主题
 一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)
@@ -249,7 +239,7 @@ git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https:/
 默认会在public下生成很多编译好的文件</p>
 <pre><code>git add *
 git commit -m &quot;init&quot;
-git push
+git push  
 </code></pre><p>11.最后把源码提交到myblog仓库备份
 cd myblog
 git remote add origin <a href="https://github.com/uunao/blog.git">https://github.com/uunao/blog.git</a>
@@ -266,6 +256,22 @@ hugo new post/my-first-blog.md
 title: &quot;My First Blog&quot;
 date: 2021-04-21T14:28:08+08:00
 draft: false   #需要改成false
+</code></pre><p>##五.git提交异常</p>
+<pre><code>git push
+</code></pre><p>
+        <img class="mx-auto" alt="../../static/images/my-first-blog/20190623184825880.png" src="../../static/images/my-first-blog/20190623184825880.png" />   
+    </p>
+<pre><code>根据提示执行,如果又报如下图错误
+git push --set-upstream origin main
+</code></pre><p>
+        <img class="mx-auto" alt="../../static/images/my-first-blog/20210422102234.jpg" src="../../static/images/my-first-blog/20210422102234.jpg" />   
+    </p>
+<pre><code>先执行
+git pull --rebase origin master  #远程库中的更新合并到本地库中,然后在把刚刚提交的合并在一起
+
+再执行上面的命令就不报错了
+git push --set-upstream origin main  #把本地分支合并到main上
+ #
 </code></pre>
         </div>
 
