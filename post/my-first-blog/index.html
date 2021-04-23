@@ -205,32 +205,30 @@ brew install hugo
 </code></pre><hr>
 <h1 id="下面会分四步介绍">下面会分四步介绍</h1>
 <h2 id="一配置github">一.配置github</h2>
-<p>1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a><!-- raw HTML omitted -->
-2.新建博客发布仓库
-这里建议新建2个仓库，和fork一个主题
-一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)
-####① 新建
-uunao.github.io
-<a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a>
+<p>1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a><br>
+2.新建博客发布仓库<br>
+这里建议新建2个仓库，和fork一个主题<br>
+一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)<br>
+新建 uunao.github.io<br>
+<a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a><br>
 Settings &ndash;&gt;GitHub Pages</p>
-<p>3.新建博客源代码
-myblog
-<a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
-<p>4.fork我们相中的主题到本地，方便以后自己修改
+<p>3.新建博客源代码 <br>
+myblog <a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
+<p>4.fork我们相中的主题到本地，方便以后自己修改 <br>
 这个我的博客模板，用的飞雪无情的：https://github.com/uunao/maupassant-hugo.git</p>
-<p>也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。
+<p>也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。<br>
 hugo主题地址：<a href="https://themes.gohugo.io/" title="主题地址">https://themes.gohugo.io/</a></p>
 <h2 id="二配置本地">二.配置本地</h2>
-<p>1.新建站点
-hugo new site myblog
-2.新建博客目录
-cd myblog
-3.初花git
-git init<br>
-4.clone 主题为子模块
-git submodule add <a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a> themes/maupassant
-5.复制主题配置文件
-cp themes/maupassant/exampleSite/config.toml .
+<p>1.新建站点<br>
+hugo new site myblog <br>
+2.新建博客目录<br>
+cd myblog<br>
+3.初花git<br>
+git init <br>
+4.clone 主题为子模块 <br>
+git submodule add <a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a> themes/maupassant <br>
+5.复制主题配置文件<br>
+cp themes/maupassant/exampleSite/config.toml .<br>
 6.编辑配置文件</p>
 <pre><code>vim config.toml
 
@@ -239,28 +237,28 @@ languageCode = &quot;zh-CN&quot;
 title = &quot;小九的博客&quot;       #博客的名字
 theme = &quot;maupassant&quot;     #主题名称 -无需修改
 </code></pre><h2 id="三发布">三.发布</h2>
-<p>1.预览效果
+<p>1.预览效果<br>
 hugo server
 http://localhost:1313</p>
-<p>2.发布博文
-把博客仓库已子模块的形式添加到public下
-git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public
-执行 hugo 命令
+<p>2.发布博文<br>
+把博客仓库已子模块的形式添加到public下<br>
+git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public<br>
+执行 hugo 命令<br>
 默认会在public下生成很多编译好的文件</p>
 <pre><code>git add *
 git commit -m &quot;init&quot;
 git push  
-</code></pre><p>3.最后把源码提交到myblog仓库备份
-cd myblog
+</code></pre><p>3.最后把源码提交到myblog仓库备份 <br>
+cd myblog<br>
 git remote add origin <a href="https://github.com/uunao/blog.git">https://github.com/uunao/blog.git</a>
-git add .
+git add .<br>
 git commint -m &ldquo;init&rdquo;  #init 是每次提交的备注，可自定义
-git checkout main
+git checkout main<br>
 git branch &ndash;set-upstream-to=origin/main main</p>
 <h2 id="四写文章并发布">四.写文章并发布</h2>
-<p>1.新增博文 &ndash;默认会生成到content目录下面
-hugo new post/my-first-blog.md
-2.编辑文件，把草稿状态改成false。文章才能显示</p>
+<p>1.新增博文 &ndash;默认会生成到content目录下面 <br>
+hugo new post/my-first-blog.md</p>
+<p>2.编辑文件，把草稿状态改成false。文章才能显示</p>
 <pre><code>vim content/post/my-first-blog.md 
 
 title: &quot;My First Blog&quot;
@@ -285,8 +283,8 @@ git push
 </code></pre><p>
         <img class="mx-auto" alt="" src="/images/my-first-blog/20190623184825880.png" />   
     </p>
-<pre><code>根据提示执行,如果又报如下图错误
-git push --set-upstream origin main
+<pre><code>根据提示执行,如果又报如下图错误 
+git push --set-upstream origin main 
 </code></pre><p>
         <img class="mx-auto" alt="" src="/images/my-first-blog/20210422102234.jpg" />   
     </p>
