@@ -196,8 +196,8 @@
         
         <div class="post-content">
             <p><strong>提示</strong>：教程默认你已经安装了 git,hugo
-安装参考官网：
-git地址：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="Title">https://git-scm.com/book/zh/v2/起步-安装-Git-Git</a>
+安装参考官网：<br>
+git地址：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="Title">https://git-scm.com/book/zh/v2/起步-安装-Git-Git</a><br>
 hugo地址：<a href="https://gohugo.io/getting-started/installing/" title="Title">https://gohugo.io/getting-started/installing/</a></p>
 <p>mac用户可以使用Homebrew安装</p>
 <pre><code>brew install git
@@ -219,17 +219,17 @@ myblog <a href="https://github.com/uunao/myblog.git">https://github.com/uunao/my
 <p>也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。<br>
 hugo主题地址：<a href="https://themes.gohugo.io/" title="主题地址">https://themes.gohugo.io/</a></p>
 <h2 id="二配置本地">二.配置本地</h2>
-<p>1.新建站点<br>
-hugo new site myblog <br>
-2.新建博客目录<br>
-cd myblog<br>
-3.初花git<br>
-git init <br>
-4.clone 主题为子模块 <br>
-git submodule add <a href="https://github.com/uunao/maupassant-hugo.git">https://github.com/uunao/maupassant-hugo.git</a> themes/maupassant <br>
-5.复制主题配置文件<br>
-cp themes/maupassant/exampleSite/config.toml .<br>
-6.编辑配置文件</p>
+<p>1.新建站点</p>
+<pre><code>hugo new site myblog    
+</code></pre><p>2.新建博客目录</p>
+<pre><code>cd myblog   
+</code></pre><p>3.初花git</p>
+<pre><code>git init    
+</code></pre><p>4.clone 主题为子模块</p>
+<pre><code>git submodule add https://github.com/uunao/maupassant-hugo.git themes/maupassant    
+</code></pre><p>5.复制主题配置文件</p>
+<pre><code>cp themes/maupassant/exampleSite/config.toml .  
+</code></pre><p>6.编辑配置文件</p>
 <pre><code>vim config.toml
 
 baseURL = &quot;uunao.github.io&quot; #我们申请的github发布仓库地址
@@ -248,14 +248,14 @@ git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https:/
 <pre><code>git add *
 git commit -m &quot;init&quot;
 git push  
-</code></pre><p>3.最后把源码提交到myblog仓库备份 <br>
-cd myblog<br>
-git remote add origin <a href="https://github.com/uunao/blog.git">https://github.com/uunao/blog.git</a>
-git add .<br>
-git commint -m &ldquo;init&rdquo;  #init 是每次提交的备注，可自定义
-git checkout main<br>
-git branch &ndash;set-upstream-to=origin/main main</p>
-<h2 id="四写文章并发布">四.写文章并发布</h2>
+</code></pre><p>3.最后把源码提交到myblog仓库备份</p>
+<pre><code>cd myblog   
+git remote add origin https://github.com/uunao/blog.git 
+git add .   
+git commint -m &quot;init&quot;  #init 是每次提交的备注，可自定义 
+git checkout main   
+git branch --set-upstream-to=origin/main main   
+</code></pre><h2 id="四写文章并发布">四.写文章并发布</h2>
 <p>1.新增博文 &ndash;默认会生成到content目录下面 <br>
 hugo new post/my-first-blog.md</p>
 <p>2.编辑文件，把草稿状态改成false。文章才能显示</p>
@@ -412,6 +412,22 @@ git push --set-upstream origin main  #把本地分支合并到main上
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
+    </li>
+    
+    <li>
+        <a href="uunao.github.io/post/brew/" title="Brew安装">Brew安装</a>
+    </li>
+    
+    <li>
+        <a href="uunao.github.io/post/mcordova_vue_android/" title="cordova把vue项目打包成android">cordova把vue项目打包成android</a>
+    </li>
+    
+    <li>
+        <a href="uunao.github.io/post/dubbo%E7%94%9F%E4%BA%A7%E8%80%85%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85token%E4%BC%A0%E9%80%92/" title="Dubbo生产者和消费者token传递">Dubbo生产者和消费者token传递</a>
+    </li>
     
     <li>
         <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客">github上创建自己的博客</a>
