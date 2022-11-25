@@ -6,10 +6,19 @@
     <description>Recent content on 小九的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 26 Dec 2021 01:14:25 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jan 2022 08:25:17 +0800</lastBuildDate>
     
 	<atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Idea Annotation</title>
+      <link>uunao.github.io/post/tips/idea-annotation/</link>
+      <pubDate>Tue, 11 Jan 2022 08:25:17 +0800</pubDate>
+      
+      <guid>uunao.github.io/post/tips/idea-annotation/</guid>
+      <description>模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog.csdn.net/xiaoliulang0324/article/details/79030752 入参 groovyScript( &amp;quot;if(\&amp;quot;${_1}\&amp;quot;.length() == 2) { return &#39; * @param: null&#39;; } else { def result=&#39;&#39;; def params=\&amp;quot;${_1}\&amp;quot;.replaceAll(&#39;[\\\\[|\\\\]|\\\\s]&#39;, &#39;&#39;).split(&#39;,&#39;).toList(); for(i = 0; i &amp;lt; params.size(); i++) { if(params[i] == &#39;&#39; || params[i] == &#39;null&#39;) { return &#39; * @param:</description>
+    </item>
     
     <item>
       <title>Apache Log4j2 Jndi RCE 高危漏洞重现/修复</title>

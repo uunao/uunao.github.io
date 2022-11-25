@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>uunao.github.io/post/log4j2_CVE-2021-44228-02/</loc>
-    <lastmod>2021-12-26T01:14:25+08:00</lastmod>
+    <loc>uunao.github.io/post/tips/idea-annotation/</loc>
+    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
   </url>
   
   <url>
     <loc>uunao.github.io/post/</loc>
-    <lastmod>2021-12-26T01:14:25+08:00</lastmod>
+    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
   </url>
   
   <url>
     <loc>uunao.github.io/</loc>
+    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>uunao.github.io/post/log4j2_CVE-2021-44228-02/</loc>
     <lastmod>2021-12-26T01:14:25+08:00</lastmod>
   </url>
   

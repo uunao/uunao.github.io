@@ -9,20 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>github上创建自己的博客 | 小九的博客</title>
-    <meta property="og:title" content="github上创建自己的博客 - 小九的博客">
+    <title>Idea Annotation | 小九的博客</title>
+    <meta property="og:title" content="Idea Annotation - 小九的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2021-04-21T14:28:08&#43;08:00'>
+    <meta property="article:published_time" content='2022-01-11T08:25:17&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2021-04-21T14:28:08&#43;08:00'>
+    <meta property="article:modified_time" content='2022-01-11T08:25:17&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,小九,java,Java语言，运维">
-    <meta name="description" content="github上创建自己的博客">
+    <meta name="description" content="Idea Annotation">
         
     <meta name="author" content="Tsui">
-    <meta property="og:url" content="uunao.github.io/post/my-first-blog/">
+    <meta property="og:url" content="uunao.github.io/post/tips/idea-annotation/">
     <link rel="shortcut icon" href='/uunao.github.io/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/uunao.github.io/css/normalize.css'>
@@ -141,15 +141,7 @@
 <div class="post-toc" style="position: absolute; top: 188px;">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一配置github">一.配置github</a></li>
-    <li><a href="#二配置本地">二.配置本地</a></li>
-    <li><a href="#三发布">三.发布</a></li>
-    <li><a href="#四写文章并发布">四.写文章并发布</a></li>
-    <li><a href="#五git提交异常">五.git提交异常</a></li>
-  </ul>
-</nav>
+        <nav id="TableOfContents"></nav>
     </div>
 </div>
 <script type="text/javascript">
@@ -181,10 +173,10 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">github上创建自己的博客</h1>
+            <h1 class="post-title">Idea Annotation</h1>
         </header>
         <date class="post-meta meta-date">
-            2021年4月21日
+            2022年1月11日
         </date>
         
         
@@ -195,105 +187,34 @@
         
         
         <div class="post-content">
-            <p><strong>提示</strong>：教程默认你已经安装了 git,hugo
-安装参考官网：<br>
-git地址：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="Title">https://git-scm.com/book/zh/v2/起步-安装-Git-Git</a><br>
-hugo地址：<a href="https://gohugo.io/getting-started/installing/" title="Title">https://gohugo.io/getting-started/installing/</a></p>
-<p>mac用户可以使用Homebrew安装</p>
-<pre><code>brew install git:
-brew install hugo
-</code></pre><hr>
-<h1 id="下面会分四步介绍">下面会分四步介绍</h1>
-<h2 id="一配置github">一.配置github</h2>
-<p>1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a><br>
-2.新建博客发布仓库<br>
-这里建议新建2个仓库，和fork一个主题<br>
-一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)<br>
-新建 uunao.github.io<br>
-<a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a><br>
-Settings &ndash;&gt;GitHub Pages</p>
-<p>3.新建博客源代码 <br>
-myblog <a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
-<p>4.fork我们相中的主题到本地，方便以后自己修改 <br>
-这个我的博客模板，用的飞雪无情的：https://github.com/uunao/maupassant-hugo.git</p>
-<p>也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。<br>
-hugo主题地址：<a href="https://themes.gohugo.io/" title="主题地址">https://themes.gohugo.io/</a></p>
-<h2 id="二配置本地">二.配置本地</h2>
-<p>1.新建站点</p>
-<pre><code>hugo new site myblog    
-</code></pre><p>2.新建博客目录</p>
-<pre><code>cd myblog   
-</code></pre><p>3.初花git</p>
-<pre><code>git init    
-</code></pre><p>4.clone 主题为子模块</p>
-<pre><code>git submodule add https://github.com/uunao/maupassant-hugo.git themes/maupassant    
-</code></pre><p>5.复制主题配置文件</p>
-<pre><code>cp themes/maupassant/exampleSite/config.toml .  
-</code></pre><p>6.编辑配置文件</p>
-<pre><code>vim config.toml
+            <p>模板：切记不要加/ 否则methodParameter方法获取不到值</p>
+<p>参考配置 ：https://blog.csdn.net/xiaoliulang0324/article/details/79030752</p>
+<pre><code>
+入参
+groovyScript(
+	&quot;if(\&quot;${_1}\&quot;.length() == 2) {
+	    return ' * @param: null';
+	} else {
+	    def result=''; 
+	    def params=\&quot;${_1}\&quot;.replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList();
+		for(i = 0; i &lt; params.size(); i++) {
+		    if(params[i] == '' || params[i] == 'null') {
+		      return ' * @param: null';
+		    }else{
+		       result+=' * @param: ' + params[i] + '--&gt;'
+		    };
+		    if(i+1&lt;params.size()){
+		    	result+='\\n';
+		    };
+		    
+		}; 
+	return result;
+	}&quot;, methodParameters()
+);
 
-baseURL = &quot;uunao.github.io&quot; #我们申请的github发布仓库地址
-languageCode = &quot;zh-CN&quot;
-title = &quot;小九的博客&quot;       #博客的名字
-theme = &quot;maupassant&quot;     #主题名称 -无需修改
-</code></pre><h2 id="三发布">三.发布</h2>
-<p>1.预览效果<br>
-hugo server
-http://localhost:1313</p>
-<p>2.发布博文<br>
-把博客仓库已子模块的形式添加到public下<br>
-git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public<br>
-执行 hugo 命令<br>
-默认会在public下生成很多编译好的文件</p>
-<pre><code>git add *
-git commit -m &quot;init&quot;
-git push  
-</code></pre><p>3.最后把源码提交到myblog仓库备份</p>
-<pre><code>cd myblog   
-git remote add origin https://github.com/uunao/blog.git 
-git add .   
-git commint -m &quot;init&quot;  #init 是每次提交的备注，可自定义 
-git checkout main   
-git branch --set-upstream-to=origin/main main   
-</code></pre><h2 id="四写文章并发布">四.写文章并发布</h2>
-<p>1.新增博文 &ndash;默认会生成到content目录下面 <br>
-hugo new post/my-first-blog.md</p>
-<p>2.编辑文件，把草稿状态改成false。文章才能显示</p>
-<pre><code>vim content/post/my-first-blog.md 
 
-title: &quot;My First Blog&quot;
-date: 2021-04-21T14:28:08+08:00
-draft: false   #需要改成false
-</code></pre><p>3.预览效果
-hugo server</p>
-<p>4.生成最终需要发布的页面
-hugo</p>
-<p>5.提交到博客仓库</p>
-<pre><code>cd public #进入myblo/public目录下
-git add .
-git commit -m &quot;my first blog&quot;
-git push
-</code></pre><p>6.提交源码到源码仓库</p>
-<pre><code>cd ..  #定位到myblog目录下
-git add .
-git commit -m &quot;my first blog&quot;
-git push
-</code></pre><h2 id="五git提交异常">五.git提交异常</h2>
-<pre><code>git push
-</code></pre><p>
-        <img class="mx-auto" alt="" src="/images/my-first-blog/20190623184825880.png" />   
-    </p>
-<pre><code>根据提示执行,如果又报如下图错误 
-git push --set-upstream origin main 
-</code></pre><p>
-        <img class="mx-auto" alt="" src="/images/my-first-blog/20210422102234.jpg" />   
-    </p>
-<pre><code>先执行
-git pull --rebase origin master  #远程库中的更新合并到本地库中,然后在把刚刚提交的合并在一起
-
-再执行上面的命令就不报错了
-git push --set-upstream origin main  #把本地分支合并到main上
- 
+返回参数
+groovyScript(&quot;return \&quot;${_1}\&quot; == 'void' ? 'null' : '' + \&quot;${_1}\&quot;&quot;, methodReturnType())
 </code></pre>
         </div>
 
@@ -301,7 +222,7 @@ git push --set-upstream origin main  #把本地分支合并到main上
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>原文作者：</strong><a rel="author" href="uunao.github.io">Tsui</a></li>
-        <li style="word-break:break-all"><strong>原文链接：</strong><a href="uunao.github.io/post/my-first-blog/">uunao.github.io/post/my-first-blog/</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="uunao.github.io/post/tips/idea-annotation/">uunao.github.io/post/tips/idea-annotation/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">Creative Commons BY-NC-ND 4.0</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
 </div>
@@ -310,6 +231,21 @@ git push --set-upstream origin main  #把本地分支合并到main上
 
 
         
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a></li>
+        
+        <li><a href="uunao.github.io/post/brew/">Brew安装</a></li>
+        
+        <li><a href="uunao.github.io/post/mcordova_vue_android/">cordova把vue项目打包成android</a></li>
+        
+        <li><a href="uunao.github.io/post/my-first-blog/">github上创建自己的博客</a></li>
+        
+    </ul>
+</div>
 
 
         <div class="post-meta meta-tags">
