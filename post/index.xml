@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 05 May 2023 13:58:53 +0800</lastBuildDate><atom:link href="uunao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>spring boot集成jaeger实现链路管理</title>
-      <link>uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
+      <link>uunao.github.io/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
       <pubDate>Fri, 05 May 2023 13:58:53 +0800</pubDate>
       
-      <guid>uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
+      <guid>uunao.github.io/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
       <description>&lt;p&gt;环境：&lt;br&gt;
 spring boot:2.6.2&lt;br&gt;
 opentracing-spring-jaeger-cloud-starter:3.2.2&lt;br&gt;
@@ -34,7 +34,7 @@ jaeger-client:1.6.0&lt;/p&gt;</description>
       <pubDate>Tue, 11 Jan 2022 08:25:17 +0800</pubDate>
       
       <guid>uunao.github.io/post/tips/idea-annotation/</guid>
-      <description>模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog</description>
+      <description></description>
     </item>
     
     <item>
