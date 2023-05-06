@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 小九的博客</title>
+    <title>Posts on 九</title>
     <link>uunao.github.io/post/</link>
-    <description>Recent content in Posts on 小九的博客</description>
+    <description>Recent content in Posts on 九</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Jan 2022 08:25:17 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 May 2023 13:58:53 +0800</lastBuildDate><atom:link href="uunao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring boot集成jaeger实现链路管理</title>
+      <link>uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
+      <pubDate>Fri, 05 May 2023 13:58:53 +0800</pubDate>
+      
+      <guid>uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
+      <description>&lt;p&gt;环境：&lt;br&gt;
+spring boot:2.6.2&lt;br&gt;
+opentracing-spring-jaeger-cloud-starter:3.2.2&lt;br&gt;
+jaeger-client:1.6.0&lt;/p&gt;</description>
+    </item>
     
-	<atom:link href="uunao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>Singleton单例</title>
+      <link>uunao.github.io/post/singleton/</link>
+      <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
+      
+      <guid>uunao.github.io/post/singleton/</guid>
+      <description>//多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for</description>
+    </item>
     
     <item>
       <title>Idea Annotation</title>
@@ -17,7 +34,7 @@
       <pubDate>Tue, 11 Jan 2022 08:25:17 +0800</pubDate>
       
       <guid>uunao.github.io/post/tips/idea-annotation/</guid>
-      <description>模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog.csdn.net/xiaoliulang0324/article/details/79030752 入参 groovyScript( &amp;quot;if(\&amp;quot;${_1}\&amp;quot;.length() == 2) { return &#39; * @param: null&#39;; } else { def result=&#39;&#39;; def params=\&amp;quot;${_1}\&amp;quot;.replaceAll(&#39;[\\\\[|\\\\]|\\\\s]&#39;, &#39;&#39;).split(&#39;,&#39;).toList(); for(i = 0; i &amp;lt; params.size(); i++) { if(params[i] == &#39;&#39; || params[i] == &#39;null&#39;) { return &#39; * @param:</description>
+      <description>模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog</description>
     </item>
     
     <item>
@@ -26,7 +43,7 @@
       <pubDate>Sun, 26 Dec 2021 01:14:25 +0800</pubDate>
       
       <guid>uunao.github.io/post/log4j2_CVE-2021-44228-02/</guid>
-      <description>下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache Log4j2某些功能存在递归解析功能，未经身份验证的攻击者通过发送特定恶意数据包，可在目标服务器上执行任意代码。 3.影响范围 Apache Log4j 2.x &amp;lt;= 2.15.0-rc1 4.流程图 图片中用rmi方式,我是用的ldap</description>
+      <description>下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache</description>
     </item>
     
     <item>
@@ -35,7 +52,7 @@
       <pubDate>Fri, 07 May 2021 15:31:37 +0800</pubDate>
       
       <guid>uunao.github.io/post/brew/</guid>
-      <description>简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、更新、查看、搜索等很多实用的功能，通过简单的一条指令，就可以实现包管理，十分方便快捷。 Homebrew 主要有四个部分组成: brew、homebrew-core 、homebrew-bottles、</description>
+      <description>简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、</description>
     </item>
     
     <item>
@@ -44,7 +61,7 @@
       <pubDate>Fri, 30 Apr 2021 16:10:36 +0800</pubDate>
       
       <guid>uunao.github.io/post/mcordova_vue_android/</guid>
-      <description>1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordova项目 cordova create androidTest io.cordova.hellocordova CordovaApp androidTest 是创建应用程序的目录名称。 io.cordova.hellocordova 是默认的反向域值。 如果可能，您应该使用您自己的域值。 CordovaApp 是您应用的标题。 com.mt.crm.app 名淘教育CRM 3.添加android平台 cd androidTest cordova platform add android &amp;ndash;save 4.检</description>
+      <description>1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordo</description>
     </item>
     
     <item>
@@ -53,7 +70,7 @@
       <pubDate>Wed, 21 Apr 2021 14:28:08 +0800</pubDate>
       
       <guid>uunao.github.io/post/my-first-blog/</guid>
-      <description>提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Git hugo地址：https://gohugo.io/getting-started/installing/ mac用户可以使用Homebrew</description>
+      <description>提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/boo</description>
     </item>
     
   </channel>

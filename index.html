@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.62.2" />
+	<meta name="generator" content="Hugo 0.101.0" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +10,17 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>小九的博客 | 咸鱼的人生</title>
-    <meta property="og:title" content="小九的博客 | 咸鱼的人生">
+    <title>九 | 咸鱼的人生</title>
+    <meta property="og:title" content="九 | 咸鱼的人生">
     <meta property="og:type" content="website">
     <meta name="Keywords" content="golang,go语言,go语言笔记,小九,java,Java语言，运维">
-    <meta name="description" content="IT互联网，包括但不限于Go语言(golang)、Java、抖音分析、软件架构等">
+    <meta name="description" content="IT互联网,包括但不限于Go语言(golang)、Java、抖音分析、软件架构等">
     <meta property="og:url" content="uunao.github.io/">
     <link rel="shortcut icon" href='/uunao.github.io/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/uunao.github.io/css/normalize.css'>
     <link rel="stylesheet" href='/uunao.github.io/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="uunao.github.io/index.xml" title="小九的博客" />
+    <link rel="alternate" type="application/rss+xml" href="uunao.github.io/index.xml" title="九" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -29,12 +29,11 @@
     
     
     
-        <link rel="stylesheet" href='/uunao.github.io/css/douban.css'>
+        <link rel="stylesheet" href='/css/douban.css'>
     
-        <link rel="stylesheet" href='/uunao.github.io/css/other.css'>
+        <link rel="stylesheet" href='/css/other.css'>
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -44,7 +43,7 @@
                 
                     <h1>
                         <a id="logo" href="uunao.github.io/uunao.github.io">
-                            小九的博客
+                            九
                         </a>
                     </h1>
                 
@@ -52,7 +51,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="uunao.github.io/uunao.github.io">首页</a>
+                    <a class="current" href="uunao.github.io/uunao.github.io">Home</a>
                     
                     <a  href="uunao.github.io/uunao.github.io/tools/" title="工具">工具</a>
                     
@@ -74,85 +73,155 @@
                     
 <div class="res-cons">
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="uunao.github.io/post/tips/idea-annotation/" title="Idea Annotation">Idea Annotation</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2022年1月11日
-        </date>
-        
-        <div class="post-content">
-            模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog.csdn.net/xiaoliulang0324/article/details/79030752 入参 groovyScript( &quot;if(\&quot;${_1}\&quot;.length() == 2) { return ' * @param: null'; } else { def result=''; def params=\&quot;${_1}\&quot;.replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); for(i = 0; i &lt; params.size(); i++) { if(params[i] == '' || params[i] == 'null') { return ' * @param:……
-        </div>
-        <p class="readmore"><a href="uunao.github.io/post/tips/idea-annotation/">阅读全文</a></p>
-    </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
+                <a href="uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" title="spring boot集成jaeger实现链路管理" target="_blank">spring boot集成jaeger实现链路管理</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2021年12月26日
-        </date>
         
+  <time datetime="2023-05-05T05:58:53Z" class="post-meta meta-date dt-published">
+    2023-05-05
+  </time>
+
+
+
         <div class="post-content">
-            下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache Log4j2某些功能存在递归解析功能，未经身份验证的攻击者通过发送特定恶意数据包，可在目标服务器上执行任意代码。 3.影响范围 Apache Log4j 2.x &lt;= 2.15.0-rc1 4.流程图 图片中用rmi方式,我是用的ldap……
+            <p>环境：<br>
+spring boot:2.6.2<br>
+opentracing-spring-jaeger-cloud-starter:3.2.2<br>
+jaeger-client:1.6.0</p>……
         </div>
-        <p class="readmore"><a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/">阅读全文</a></p>
+        <p class="readmore"><a href="uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" target="_blank">Continue reading</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="uunao.github.io/post/brew/" title="Brew安装">Brew安装</a>
+                <a href="uunao.github.io/post/singleton/" title="Singleton单例" target="_blank">Singleton单例</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2021年5月7日
-        </date>
         
+  <time datetime="2022-11-26T14:16:06Z" class="post-meta meta-date dt-published">
+    2022-11-26
+  </time>
+
+
+
         <div class="post-content">
-            简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、更新、查看、搜索等很多实用的功能，通过简单的一条指令，就可以实现包管理，十分方便快捷。 Homebrew 主要有四个部分组成: brew、homebrew-core 、homebrew-bottles、……
+            //多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for……
         </div>
-        <p class="readmore"><a href="uunao.github.io/post/brew/">阅读全文</a></p>
+        <p class="readmore"><a href="uunao.github.io/post/singleton/" target="_blank">Continue reading</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="uunao.github.io/post/mcordova_vue_android/" title="cordova把vue项目打包成android">cordova把vue项目打包成android</a>
+                <a href="uunao.github.io/post/tips/idea-annotation/" title="Idea Annotation" target="_blank">Idea Annotation</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2021年4月30日
-        </date>
         
+  <time datetime="2022-01-11T00:25:17Z" class="post-meta meta-date dt-published">
+    2022-01-11
+  </time>
+
+
+
         <div class="post-content">
-            1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordova项目 cordova create androidTest io.cordova.hellocordova CordovaApp androidTest 是创建应用程序的目录名称。 io.cordova.hellocordova 是默认的反向域值。 如果可能，您应该使用您自己的域值。 CordovaApp 是您应用的标题。 com.mt.crm.app 名淘教育CRM 3.添加android平台 cd androidTest cordova platform add android &ndash;save 4.检……
+            模板：切记不要加/ 否则methodParameter方法获取不到值 参考配置 ：https://blog……
         </div>
-        <p class="readmore"><a href="uunao.github.io/post/mcordova_vue_android/">阅读全文</a></p>
+        <p class="readmore"><a href="uunao.github.io/post/tips/idea-annotation/" target="_blank">Continue reading</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客">github上创建自己的博客</a>
+                <a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复" target="_blank">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2021年4月21日
-        </date>
         
+  <time datetime="2021-12-25T17:14:25Z" class="post-meta meta-date dt-published">
+    2021-12-26
+  </time>
+
+
+
         <div class="post-content">
-            提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Git hugo地址：https://gohugo.io/getting-started/installing/ mac用户可以使用Homebrew……
+            下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache……
         </div>
-        <p class="readmore"><a href="uunao.github.io/post/my-first-blog/">阅读全文</a></p>
+        <p class="readmore"><a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" target="_blank">Continue reading</a></p>
     </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="uunao.github.io/post/brew/" title="Brew安装" target="_blank">Brew安装</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-05-07T07:31:37Z" class="post-meta meta-date dt-published">
+    2021-05-07
+  </time>
+
+
+
+        <div class="post-content">
+            简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、……
+        </div>
+        <p class="readmore"><a href="uunao.github.io/post/brew/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="uunao.github.io/post/mcordova_vue_android/" title="cordova把vue项目打包成android" target="_blank">cordova把vue项目打包成android</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-04-30T08:10:36Z" class="post-meta meta-date dt-published">
+    2021-04-30
+  </time>
+
+
+
+        <div class="post-content">
+            1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordo……
+        </div>
+        <p class="readmore"><a href="uunao.github.io/post/mcordova_vue_android/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客" target="_blank">github上创建自己的博客</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-04-21T06:28:08Z" class="post-meta meta-date dt-published">
+    2021-04-21
+  </time>
+
+
+
+        <div class="post-content">
+            提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/boo……
+        </div>
+        <p class="readmore"><a href="uunao.github.io/post/my-first-blog/" target="_blank">Continue reading</a></p>
+    </article>
+    
     
     
 
@@ -164,7 +233,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2022 <a href="uunao.github.io/uunao.github.io">小九的博客 By Tsui</a>
+        &copy; 2023 <a href="uunao.github.io/uunao.github.io">九 By Tsui</a>
         
     </div>
     <br />
@@ -173,7 +242,7 @@
             <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
         </div>
         <div class="github-badge">
-            <a href="javascript:void(0);" ><span class="badge-subject">build by</span><span class="badge-value bg-brightgreen">Tsui</span></a>
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
         </div>
         <div class="github-badge">
             <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
@@ -187,48 +256,55 @@
 <script type="text/javascript" src='/uunao.github.io/js/totop.js?v=0.0.0' async=""></script>
 
 
-
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 
 
 
-    <script src='/uunao.github.io/js/douban.js'></script>
+    <script src='/js/douban.js'></script>
 
                 </div>
 
                 <div id="secondary">
     <section class="widget">
-        <form id="search" action='uunao.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='uunao.github.io/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="uunao.github.io">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
-    
+
     <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
+        <h3 class="widget-title">Latest articles</h3>
 <ul class="widget-list">
     
     <li>
-        <a href="uunao.github.io/post/tips/idea-annotation/" title="Idea Annotation">Idea Annotation</a>
+        <a href="uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" title="spring boot集成jaeger实现链路管理" target="_blank">spring boot集成jaeger实现链路管理</a>
     </li>
     
     <li>
-        <a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
+        <a href="uunao.github.io/post/singleton/" title="Singleton单例" target="_blank">Singleton单例</a>
     </li>
     
     <li>
-        <a href="uunao.github.io/post/brew/" title="Brew安装">Brew安装</a>
+        <a href="uunao.github.io/post/tips/idea-annotation/" title="Idea Annotation" target="_blank">Idea Annotation</a>
     </li>
     
     <li>
-        <a href="uunao.github.io/post/mcordova_vue_android/" title="cordova把vue项目打包成android">cordova把vue项目打包成android</a>
+        <a href="uunao.github.io/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复" target="_blank">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
     </li>
     
     <li>
-        <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客">github上创建自己的博客</a>
+        <a href="uunao.github.io/post/brew/" title="Brew安装" target="_blank">Brew安装</a>
+    </li>
+    
+    <li>
+        <a href="uunao.github.io/post/mcordova_vue_android/" title="cordova把vue项目打包成android" target="_blank">cordova把vue项目打包成android</a>
+    </li>
+    
+    <li>
+        <a href="uunao.github.io/post/my-first-blog/" title="github上创建自己的博客" target="_blank">github上创建自己的博客</a>
     </li>
     
 </ul>
@@ -237,14 +313,14 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href='/uunao.github.io/categories/'>分类</a></h3>
+        <h3 class="widget-title"><a href='/uunao.github.io/categories/'>Categories</a></h3>
 <ul class="widget-list">
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href='/uunao.github.io/tags/'>标签</a></h3>
+        <h3 class="widget-title"><a href='/uunao.github.io/tags/'>Tags</a></h3>
 <div class="tagcloud">
     
 </div>
@@ -252,7 +328,7 @@
 
     
 <section class="widget">
-    <h3 class="widget-title">友情链接</h3>
+    <h3 class="widget-title">Links</h3>
     <ul class="widget-list">
         
         <li>
@@ -268,9 +344,9 @@
 
 
     <section class="widget">
-        <h3 class="widget-title">其它</h3>
+        <h3 class="widget-title">Meta</h3>
         <ul class="widget-list">
-            <li><a href="uunao.github.io/index.xml">文章 RSS</a></li>
+            <li><a href="uunao.github.io/index.xml">RSS</a></li>
         </ul>
     </section>
 </div>

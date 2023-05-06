@@ -1,48 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>uunao.github.io/post/tips/idea-annotation/</loc>
-    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>uunao.github.io/post/</loc>
-    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2023-05-05T13:58:53+08:00</lastmod>
+  </url><url>
+    <loc>uunao.github.io/post/springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</loc>
+    <lastmod>2023-05-05T13:58:53+08:00</lastmod>
+  </url><url>
     <loc>uunao.github.io/</loc>
+    <lastmod>2023-05-05T13:58:53+08:00</lastmod>
+  </url><url>
+    <loc>uunao.github.io/post/singleton/</loc>
+    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
+  </url><url>
+    <loc>uunao.github.io/post/tips/idea-annotation/</loc>
     <lastmod>2022-01-11T08:25:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/post/log4j2_CVE-2021-44228-02/</loc>
     <lastmod>2021-12-26T01:14:25+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/post/brew/</loc>
     <lastmod>2021-05-07T15:31:37+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/post/mcordova_vue_android/</loc>
     <lastmod>2021-04-30T16:10:36+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/post/my-first-blog/</loc>
     <lastmod>2021-04-21T14:28:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>uunao.github.io/tags/</loc>
   </url>
-  
 </urlset>
