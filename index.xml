@@ -6,7 +6,16 @@
     <description>Recent content on 九</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 24 May 2023 10:23:04 +0800</lastBuildDate><atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2024 09:36:46 +0800</lastBuildDate><atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dvwa靶场试炼</title>
+      <link>uunao.github.io/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</link>
+      <pubDate>Mon, 08 Jan 2024 09:36:46 +0800</pubDate>
+      
+      <guid>uunao.github.io/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Centos搭建gogs</title>
       <link>uunao.github.io/post/centos%E6%90%AD%E5%BB%BAgogs/</link>
