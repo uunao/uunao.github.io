@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>九</title>
-    <link>uunao.github.io/</link>
+    <link>/</link>
     <description>Recent content on 九</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 08 Jan 2024 09:36:46 +0800</lastBuildDate><atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2024 09:36:46 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dvwa靶场试炼</title>
-      <link>uunao.github.io/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</link>
+      <link>/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</link>
       <pubDate>Mon, 08 Jan 2024 09:36:46 +0800</pubDate>
       
-      <guid>uunao.github.io/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</guid>
+      <guid>/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Centos搭建gogs</title>
-      <link>uunao.github.io/post/centos%E6%90%AD%E5%BB%BAgogs/</link>
+      <link>/post/centos%E6%90%AD%E5%BB%BAgogs/</link>
       <pubDate>Wed, 24 May 2023 10:23:04 +0800</pubDate>
       
-      <guid>uunao.github.io/post/centos%E6%90%AD%E5%BB%BAgogs/</guid>
+      <guid>/post/centos%E6%90%AD%E5%BB%BAgogs/</guid>
       <description>gogs官网 https://gogs.io/ 1.安装git yum install -y git 2.下载git,可以去官网下载 wget https://dl.gogs.io/0.13.0/gogs_0.13.0_linux_amd64.tar.gz #默认端口3000 nohup ./gogs web &amp;amp;&amp;gt;/dev/null &amp;amp;</description>
     </item>
     
     <item>
       <title>spring boot集成jaeger实现链路管理</title>
-      <link>uunao.github.io/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
+      <link>/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
       <pubDate>Fri, 05 May 2023 13:58:53 +0800</pubDate>
       
-      <guid>uunao.github.io/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
+      <guid>/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
       <description>&lt;p&gt;环境：&lt;br&gt;
 spring boot:2.6.2&lt;br&gt;
 opentracing-spring-jaeger-cloud-starter:3.2.2&lt;br&gt;
@@ -39,55 +39,55 @@ jaeger-client:1.6.0&lt;/p&gt;</description>
     
     <item>
       <title>Singleton单例</title>
-      <link>uunao.github.io/post/singleton/</link>
+      <link>/post/singleton/</link>
       <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
       
-      <guid>uunao.github.io/post/singleton/</guid>
+      <guid>/post/singleton/</guid>
       <description>//多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for</description>
     </item>
     
     <item>
       <title>Idea Annotation</title>
-      <link>uunao.github.io/post/tips/idea-annotation/</link>
+      <link>/post/tips/idea-annotation/</link>
       <pubDate>Tue, 11 Jan 2022 08:25:17 +0800</pubDate>
       
-      <guid>uunao.github.io/post/tips/idea-annotation/</guid>
+      <guid>/post/tips/idea-annotation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apache Log4j2 Jndi RCE 高危漏洞重现/修复</title>
-      <link>uunao.github.io/post/log4j2_CVE-2021-44228-02/</link>
+      <link>/post/log4j2_CVE-2021-44228-02/</link>
       <pubDate>Sun, 26 Dec 2021 01:14:25 +0800</pubDate>
       
-      <guid>uunao.github.io/post/log4j2_CVE-2021-44228-02/</guid>
+      <guid>/post/log4j2_CVE-2021-44228-02/</guid>
       <description>下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache</description>
     </item>
     
     <item>
       <title>Brew安装</title>
-      <link>uunao.github.io/post/brew/</link>
+      <link>/post/brew/</link>
       <pubDate>Fri, 07 May 2021 15:31:37 +0800</pubDate>
       
-      <guid>uunao.github.io/post/brew/</guid>
+      <guid>/post/brew/</guid>
       <description>简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、</description>
     </item>
     
     <item>
       <title>cordova把vue项目打包成android</title>
-      <link>uunao.github.io/post/mcordova_vue_android/</link>
+      <link>/post/mcordova_vue_android/</link>
       <pubDate>Fri, 30 Apr 2021 16:10:36 +0800</pubDate>
       
-      <guid>uunao.github.io/post/mcordova_vue_android/</guid>
+      <guid>/post/mcordova_vue_android/</guid>
       <description>1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordo</description>
     </item>
     
     <item>
       <title>github上创建自己的博客</title>
-      <link>uunao.github.io/post/my-first-blog/</link>
+      <link>/post/my-first-blog/</link>
       <pubDate>Wed, 21 Apr 2021 14:28:08 +0800</pubDate>
       
-      <guid>uunao.github.io/post/my-first-blog/</guid>
+      <guid>/post/my-first-blog/</guid>
       <description>提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/boo</description>
     </item>
     
