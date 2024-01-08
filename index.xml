@@ -6,7 +6,16 @@
     <description>Recent content on 九</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 05 May 2023 13:58:53 +0800</lastBuildDate><atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 May 2023 10:23:04 +0800</lastBuildDate><atom:link href="uunao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centos搭建gogs</title>
+      <link>uunao.github.io/post/centos%E6%90%AD%E5%BB%BAgogs/</link>
+      <pubDate>Wed, 24 May 2023 10:23:04 +0800</pubDate>
+      
+      <guid>uunao.github.io/post/centos%E6%90%AD%E5%BB%BAgogs/</guid>
+      <description>gogs官网 https://gogs.io/ 1.安装git yum install -y git 2.下载git,可以去官网下载 wget https://dl.gogs.io/0.13.0/gogs_0.13.0_linux_amd64.tar.gz #默认端口3000 nohup ./gogs web &amp;amp;&amp;gt;/dev/null &amp;amp;</description>
+    </item>
+    
     <item>
       <title>spring boot集成jaeger实现链路管理</title>
       <link>uunao.github.io/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
