@@ -10,9 +10,9 @@
     <atom:link href="https://naiba.fun/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Singleton单例</title>
-      <link>https://naiba.fun/post/singleton/</link>
+      <link>https://naiba.fun/post/tech/singleton/</link>
       <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
-      <guid>https://naiba.fun/post/singleton/</guid>
+      <guid>https://naiba.fun/post/tech/singleton/</guid>
       <description>11 22 33 //多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for (int i = 0; i &amp;lt; 10; i++) { new Thread(() -&amp;gt; System.out.println(Singleton.getInstance().hashCode())).start(); } } }</description>
     </item>
   </channel>
