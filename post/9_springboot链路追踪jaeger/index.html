@@ -1,219 +1,216 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
-
-    <title>spring boot集成jaeger实现链路管理 | 九</title>
-    <meta property="og:title" content="spring boot集成jaeger实现链路管理 - 九">
-    <meta property="og:type" content="article">
-        
-    <meta property="article:published_time" content='2023-05-05T13:58:53&#43;08:00'>
-        
-        
-    <meta property="article:modified_time" content='2023-05-05T13:58:53&#43;08:00'>
-        
-    <meta name="Keywords" content="golang,go语言,go语言笔记,小九,java,Java语言，运维">
-    <meta name="description" content="spring boot集成jaeger实现链路管理">
-        
-    <meta name="author" content="Tsui">
-    <meta property="og:url" content="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
-
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    
-    
-    
-    
-    
-    
-        <link rel="stylesheet" href='/css/douban.css'>
-    
-        <link rel="stylesheet" href='/css/other.css'>
-    
-</head>
-
-<body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="">
-                        九
-                    </a>
-                
-                <p class="description">人生如逆旅，我亦是行人</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="">Home</a>
-                    
-                    <a  href="/tools/" title="工具">工具</a>
-                    
-                    <a  href="/archives/" title="归档">归档</a>
-                    
-                    <a  href="/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
-
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
-    <style type="text/css">
-    .post-toc {
-        position: fixed;
-        width: 200px;
-        margin-left: -210px;
-        padding: 5px 10px;
-        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
-        font-size: 12px;
-        border: 1px solid rgba(0, 0, 0, .07);
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.98);
-        background-clip: padding-box;
-        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        word-wrap: break-word;
-        white-space: nowrap;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        z-index: 999;
-        cursor: pointer;
-        max-height: 70%;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .post-toc .post-toc-title {
-        width: 100%;
-        margin: 0 auto;
-        font-size: 20px;
-        font-weight: 400;
-        text-transform: uppercase;
-        text-align: center;
-    }
-
-    .post-toc .post-toc-content {
-        font-size: 15px;
-    }
-
-    .post-toc .post-toc-content>nav>ul {
-        margin: 10px 0;
-    }
-
-    .post-toc .post-toc-content ul {
-        padding-left: 20px;
-        list-style: square;
-        margin: 0.5em;
-        line-height: 1.8em;
-    }
-
-    .post-toc .post-toc-content ul ul {
-        padding-left: 15px;
-        display: none;
-    }
-
-    @media print,
-    screen and (max-width:1057px) {
-        .post-toc {
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>spring boot集成jaeger实现链路管理 | 九</title>
+<meta name="keywords" content="">
+<meta name="description" content="环境：
+spring boot:2.6.2
+opentracing-spring-jaeger-cloud-starter:3.2.2
+jaeger-client:1.6.0">
+<meta name="author" content="">
+<link rel="canonical" href="https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://naiba.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://naiba.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://naiba.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://naiba.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://naiba.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
             display: none;
         }
-    }
-</style>
-<div class="post-toc" style="position: absolute; top: 188px;">
-    <h2 class="post-toc-title">catalogue</h2>
-    <div class="post-toc-content">
-        <nav id="TableOfContents"></nav>
-    </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var postToc = $(".post-toc");
-        if (postToc.length) {
-            var leftPos = $("#main").offset().left;
-            if (leftPos < 220) {
-                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
             }
 
-            var t = postToc.offset().top - 20,
-                a = {
-                    start: {
-                        position: "absolute",
-                        top: t
-                    },
-                    process: {
-                        position: "fixed",
-                        top: 20
-                    },
-                };
-            $(window).scroll(function () {
-                var e = $(window).scrollTop();
-                e < t ? postToc.css(a.start) : postToc.css(a.process)
-            })
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
         }
 
-        if ($("#TableOfContents").children().length < 1) {
-            $(".post-toc").remove();
-        }
-    })
+    </style>
+</noscript><meta property="og:title" content="spring boot集成jaeger实现链路管理" />
+<meta property="og:description" content="环境：
+spring boot:2.6.2
+opentracing-spring-jaeger-cloud-starter:3.2.2
+jaeger-client:1.6.0" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-05-05T13:58:53+08:00" />
+<meta property="article:modified_time" content="2023-05-05T13:58:53+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="spring boot集成jaeger实现链路管理"/>
+<meta name="twitter:description" content="环境：
+spring boot:2.6.2
+opentracing-spring-jaeger-cloud-starter:3.2.2
+jaeger-client:1.6.0"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://naiba.fun/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "spring boot集成jaeger实现链路管理",
+      "item": "https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/"
+    }
+  ]
+}
 </script>
-    <article class="post">
-        <header>
-            <h1 class="post-title">spring boot集成jaeger实现链路管理</h1>
-        </header>
-        
-  <time datetime="2023-05-05T05:58:53Z" class="post-meta meta-date dt-published">
-    2023-05-05
-  </time>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "spring boot集成jaeger实现链路管理",
+  "name": "spring boot集成jaeger实现链路管理",
+  "description": "环境：\nspring boot:2.6.2\nopentracing-spring-jaeger-cloud-starter:3.2.2\njaeger-client:1.6.0\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "环境：\nspring boot:2.6.2\nopentracing-spring-jaeger-cloud-starter:3.2.2\njaeger-client:1.6.0\nio.opentracing.contrib opentracing-spring-jaeger-cloud-starter 3.2.2 io.jaegertracing jaeger-client 1.6.0 注意:\nopentracing-spring-jaeger-cloud-starter不支持最新版本的spring-cloud-starter-openfeign。 spring-cloud-starter-openfeign中的LoadBalancerFeignClient被移除了。\n所以我们需要自己创建下,直接复制\npackage org.springframework.cloud.openfeign.ribbon; public class CachingSpringLoadBalancerFactory { } package org.springframework.cloud.openfeign.ribbon; import feign.Client; public class LoadBalancerFeignClient { public LoadBalancerFeignClient(Client delegate, CachingSpringLoadBalancerFactory lbClientFactory, SpringClientFactory clientFactory) { throw new UnsupportedOperationException(); } public Client getDelegate() { throw new UnsupportedOperationException(); } } package org.springframework.cloud.openfeign.ribbon; public class SpringClientFactory { } docker直接部署jaeger\ndocker run -d --name jaeger \\ -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \\ -p 5775:5775/udp \\ -p 6831:6831/udp \\ -p 6832:6832/udp \\ -p 5778:5778 \\ -p 16686:16686 \\ -p 14250:14250 \\ -p 14268:14268 \\ -p 14269:14269 \\ -p 9411:9411 \\ jaegertracing/all-in-one:1.33 配置jeager的相关参数\nopentracing: jaeger: enabled: true # 启用对接Jaeger（可以不配置，默认true） enable128-bit-traces: true # 使用短TraceID（可以不配置） udp-sender: udp-sender: host: 192.168.5.110 # 配置Jaeger服务器地址 jeager-ui地址: http://localhost:16686\n其他链路追踪对比 如果只需要traceId 可以只需要引入\norg.springframework.cloud spring-cloud-sleuth 2.0.0.RELEASE pom import 即可获取到\nimport brave.Tracer; @Service public class Breadcrumb { @Autowired private Tracer tracer; public String breadcrumbId() { return tracer.currentSpan().context().traceIdString(); } } ",
+  "wordCount" : "446",
+  "inLanguage": "zh",
+  "datePublished": "2023-05-05T13:58:53+08:00",
+  "dateModified": "2023-05-05T13:58:53+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "九",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://naiba.fun/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
+</script>
 
-        
-        <div class="post-meta">
-            <span id="busuanzi_container_page_pv">&nbsp;|
-                <span id="busuanzi_value_page_pv"></span> <span>reads</span>
-            </span>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://naiba.fun" accesskey="h" title="九 (Alt + H)">九</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
-        
-        
-        <div class="post-content">
-            <p>环境：<br>
+        <ul id="menu">
+            <li>
+                <a href="https://naiba.fun/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      spring boot集成jaeger实现链路管理
+    </h1>
+    <div class="post-meta"><span title='2023-05-05 13:58:53 +0800 CST'>五月 5, 2023</span>&nbsp;·&nbsp;1 分钟
+
+</div>
+  </header> 
+  <div class="post-content"><p>环境：<br>
 spring boot:2.6.2<br>
 opentracing-spring-jaeger-cloud-starter:3.2.2<br>
 jaeger-client:1.6.0</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;!--jaeager--&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;!--jaeager--&gt;
 </span></span><span style="display:flex;"><span>&lt;dependency&gt;
 </span></span><span style="display:flex;"><span>    &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
 </span></span><span style="display:flex;"><span>    &lt;artifactId&gt;opentracing-spring-jaeger-cloud-starter&lt;/artifactId&gt;
@@ -224,139 +221,56 @@ jaeger-client:1.6.0</p>
 </span></span><span style="display:flex;"><span>    &lt;artifactId&gt;jaeger-client&lt;/artifactId&gt;
 </span></span><span style="display:flex;"><span>    &lt;version&gt;1.6.0&lt;/version&gt;
 </span></span><span style="display:flex;"><span>&lt;/dependency&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意:<br>
+</span></span></code></pre></div><p>注意:<br>
 opentracing-spring-jaeger-cloud-starter不支持最新版本的spring-cloud-starter-openfeign。 <br>
 spring-cloud-starter-openfeign中的LoadBalancerFeignClient被移除了。<br>
 所以我们需要自己创建下,直接复制</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#dc322f;font-weight:bold">package</span> <span style="color:#268bd2">org.springframework.cloud.openfeign.ribbon</span>;
-</span></span><span style="display:flex;"><span><span style="color:#859900">public</span> <span style="color:#859900">class</span> <span style="color:#cb4b16">CachingSpringLoadBalancerFactory</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.springframework.cloud.openfeign.ribbon;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CachingSpringLoadBalancerFactory</span> {
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#dc322f;font-weight:bold">package</span> <span style="color:#268bd2">org.springframework.cloud.openfeign.ribbon</span>;
-</span></span><span style="display:flex;"><span><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">feign.Client</span>;
-</span></span><span style="display:flex;"><span><span style="color:#859900">public</span> <span style="color:#859900">class</span> <span style="color:#cb4b16">LoadBalancerFeignClient</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#859900">public</span> <span style="color:#268bd2">LoadBalancerFeignClient</span>(<span style="color:#268bd2">Client</span> <span style="color:#268bd2">delegate</span>, <span style="color:#268bd2">CachingSpringLoadBalancerFactory</span> <span style="color:#268bd2">lbClientFactory</span>, <span style="color:#268bd2">SpringClientFactory</span> <span style="color:#268bd2">clientFactory</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#859900">throw</span> <span style="color:#859900">new</span> <span style="color:#268bd2">UnsupportedOperationException</span>();
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.springframework.cloud.openfeign.ribbon;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> feign.Client;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoadBalancerFeignClient</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LoadBalancerFeignClient</span>(Client delegate, CachingSpringLoadBalancerFactory lbClientFactory, SpringClientFactory clientFactory) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnsupportedOperationException();
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#859900">public</span> <span style="color:#268bd2">Client</span> <span style="color:#268bd2">getDelegate</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#859900">throw</span> <span style="color:#859900">new</span> <span style="color:#268bd2">UnsupportedOperationException</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Client <span style="color:#a6e22e">getDelegate</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnsupportedOperationException();
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#dc322f;font-weight:bold">package</span> <span style="color:#268bd2">org.springframework.cloud.openfeign.ribbon</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.springframework.cloud.openfeign.ribbon;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#859900">public</span> <span style="color:#859900">class</span> <span style="color:#cb4b16">SpringClientFactory</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringClientFactory</span> {
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>docker直接部署jaeger</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name jaeger <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -e <span style="color:#268bd2">COLLECTOR_ZIPKIN_HOST_PORT</span>=:9411 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 5775:5775/udp <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 6831:6831/udp <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 6832:6832/udp <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 5778:5778 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 16686:16686 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 14250:14250 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 14268:14268 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 14269:14269 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  -p 9411:9411 <span style="color:#2aa198">\
-</span></span></span><span style="display:flex;"><span><span style="color:#2aa198"></span>  jaegertracing/all-in-one:1.33
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>配置jeager的相关参数</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#268bd2;font-weight:bold">opentracing</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2;font-weight:bold">jaeger</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2;font-weight:bold">enabled</span>: <span style="color:#859900;font-weight:bold">true</span> <span style="color:#93a1a1;font-style:italic"># 启用对接Jaeger（可以不配置，默认true）</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2;font-weight:bold">enable128-bit-traces</span>: <span style="color:#859900;font-weight:bold">true</span> <span style="color:#93a1a1;font-style:italic"># 使用短TraceID（可以不配置）</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2;font-weight:bold">udp-sender</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#268bd2;font-weight:bold">udp-sender</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#268bd2;font-weight:bold">host</span>: <span style="color:#2aa198;font-weight:bold">192.168.5.110</span>  <span style="color:#93a1a1;font-style:italic"># 配置Jaeger服务器地址</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>jeager-ui地址: <a href="http://localhost:16686?_blank">http://localhost:16686</a></p>
+</span></span></code></pre></div><p>docker直接部署jaeger</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name jaeger <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e COLLECTOR_ZIPKIN_HOST_PORT<span style="color:#f92672">=</span>:9411 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 5775:5775/udp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 6831:6831/udp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 6832:6832/udp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 5778:5778 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 16686:16686 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 14250:14250 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 14268:14268 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 14269:14269 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 9411:9411 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  jaegertracing/all-in-one:1.33
+</span></span></code></pre></div><p>配置jeager的相关参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">opentracing</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jaeger</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># 启用对接Jaeger（可以不配置，默认true）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">enable128-bit-traces</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># 使用短TraceID（可以不配置）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">udp-sender</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">udp-sender</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">host</span>: <span style="color:#ae81ff">192.168.5.110</span>  <span style="color:#75715e"># 配置Jaeger服务器地址</span>
+</span></span></code></pre></div><p>jeager-ui地址: <a href="http://localhost:16686?_blank">http://localhost:16686</a></p>
 <p>其他链路追踪对比
-
-        <img class="mx-auto" alt="对比图片" src="/images/9/9ACE3B96-7E98-479B-8CDD-BC3AD63859A8.png" />   
-    </p>
+<img loading="lazy" src="/images/9/9ACE3B96-7E98-479B-8CDD-BC3AD63859A8.png" alt="对比图片"  />
+</p>
 <p>如果只需要traceId
 可以只需要引入</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;!--链路追踪 start--&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;!--链路追踪 start--&gt;
 </span></span><span style="display:flex;"><span>  &lt;dependency&gt;
 </span></span><span style="display:flex;"><span>      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
 </span></span><span style="display:flex;"><span>      &lt;artifactId&gt;spring-cloud-sleuth&lt;/artifactId&gt;
@@ -365,334 +279,111 @@ spring-cloud-starter-openfeign中的LoadBalancerFeignClient被移除了。<br>
 </span></span><span style="display:flex;"><span>      &lt;scope&gt;import&lt;/scope&gt;
 </span></span><span style="display:flex;"><span>  &lt;/dependency&gt;
 </span></span><span style="display:flex;"><span>&lt;!--链路追踪 end--&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>即可获取到</p>
-<div class="highlight"><div style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">brave.Tracer</span>;
+</span></span></code></pre></div><p>即可获取到</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> brave.Tracer;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">@Service</span>
-</span></span><span style="display:flex;"><span><span style="color:#859900">public</span> <span style="color:#859900">class</span> <span style="color:#cb4b16">Breadcrumb</span> {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Breadcrumb</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">@Autowired</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#859900">private</span> <span style="color:#268bd2">Tracer</span> <span style="color:#268bd2">tracer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Tracer tracer;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#859900">public</span> <span style="color:#268bd2">String</span> <span style="color:#268bd2">breadcrumbId</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#859900">return</span> <span style="color:#268bd2">tracer</span>.<span style="color:#268bd2">currentSpan</span>().<span style="color:#268bd2">context</span>().<span style="color:#268bd2">traceIdString</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">breadcrumbId</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> tracer.<span style="color:#a6e22e">currentSpan</span>().<span style="color:#a6e22e">context</span>().<span style="color:#a6e22e">traceIdString</span>();
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
-        </div>
+</span></span></code></pre></div>
 
-        
-<div class="post-archive">
-    <ul class="post-copyright">
-        <li><strong>Author: </strong><a rel="author" href="">Tsui</a></li>
-        <li style="word-break:break-all"><strong>Link: </strong><a href="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/">/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</a></li>
-        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">Creative Commons BY-NC-ND 4.0</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
     </ul>
-</div>
-<br/>
+<nav class="paginav">
+  <a class="prev" href="https://naiba.fun/post/centos%E6%90%AD%E5%BB%BAgogs/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Centos搭建gogs</span>
+  </a>
+  <a class="next" href="https://naiba.fun/post/kali/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>kali配置</span>
+  </a>
+</nav>
 
-
-
-        
-
-<div class="post-archive">
-    <h2>See Also</h2>
-    <ul class="listing">
-        
-        <li><a href="/post/singleton/">Singleton单例</a></li>
-        
-        <li><a href="/post/tips/idea-annotation/">Idea Annotation</a></li>
-        
-        <li><a href="/post/log4j2_CVE-2021-44228-02/">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a></li>
-        
-        <li><a href="/post/brew/">Brew安装</a></li>
-        
-        <li><a href="/post/mcordova_vue_android/">cordova把vue项目打包成android</a></li>
-        
-    </ul>
-</div>
-
-
-        <div class="post-meta meta-tags">
-            
-            No tags
-            
-        </div>
-    </article>
+  </footer>
+</article>
+    </main>
     
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    
-    
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "your github repo"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
-    </div>
-    
-    
-    
-
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2024 <a href="">九 By Tsui</a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://naiba.fun">九</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-
-    
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-<style type="text/css">
-div.highlight {
-    position: relative;
-    margin: 1em 0px;
-}
-
-.copy-code {
-    display: none;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(78, 78, 78, 0.8);
-    border-radius: var(--radius);
-    padding: 0 5px;
-    font: inherit;
-    user-select: none;
-    cursor: pointer;
-    border: 0;
-    --radius: 8px;
-}
-
-div.highlight:hover .copy-code,pre:hover .copy-code {
-    display: block;
-}
-
-</style>
 <script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
+    }
 
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
             }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
         });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
     });
+
 </script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-    <script src='/js/douban.js'></script>
-
-                </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title">Latest articles</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/" title="Dvwa靶场试炼" target="_blank">Dvwa靶场试炼</a>
-    </li>
-    
-    <li>
-        <a href="/post/centos%E6%90%AD%E5%BB%BAgogs/" title="Centos搭建gogs" target="_blank">Centos搭建gogs</a>
-    </li>
-    
-    <li>
-        <a href="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" title="spring boot集成jaeger实现链路管理" target="_blank">spring boot集成jaeger实现链路管理</a>
-    </li>
-    
-    <li>
-        <a href="/post/singleton/" title="Singleton单例" target="_blank">Singleton单例</a>
-    </li>
-    
-    <li>
-        <a href="/post/tips/idea-annotation/" title="Idea Annotation" target="_blank">Idea Annotation</a>
-    </li>
-    
-    <li>
-        <a href="/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复" target="_blank">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
-    </li>
-    
-    <li>
-        <a href="/post/brew/" title="Brew安装" target="_blank">Brew安装</a>
-    </li>
-    
-    <li>
-        <a href="/post/mcordova_vue_android/" title="cordova把vue项目打包成android" target="_blank">cordova把vue项目打包成android</a>
-    </li>
-    
-    <li>
-        <a href="/post/my-first-blog/" title="github上创建自己的博客" target="_blank">github上创建自己的博客</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
-<ul class="widget-list">
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
-<div class="tagcloud">
-    
-</div>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">Links</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="https://www.naiba.fun/" title="小九的博客">小九的博客</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://github" title="GitHub">GitHub</a>
-        </li>
-        
-    </ul>
-</section>
-
-
-    <section class="widget">
-        <h3 class="widget-title">Meta</h3>
-        <ul class="widget-list">
-            <li><a href="index.xml">RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
+</script>
 </body>
 
 </html>

@@ -1,409 +1,300 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Posts | 九</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - 九">
+<meta name="author" content="">
+<link rel="canonical" href="https://naiba.fun/post/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://naiba.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://naiba.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://naiba.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://naiba.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://naiba.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://naiba.fun/post/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    <title>Posts | 九</title>
-    <meta property="og:title" content="Posts - 九">
-    <meta property="og:type" content="article">
-        
-        
-    <meta name="Keywords" content="golang,go语言,go语言笔记,小九,java,Java语言，运维">
-    <meta name="description" content="Posts">
-        
-    <meta name="author" content="Tsui">
-    <meta property="og:url" content="/post/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="/post/index.xml" title="九" />
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            .list {
+                background: var(--theme);
+            }
 
-    
-    
-    
-    
-    
-    
-        <link rel="stylesheet" href='/css/douban.css'>
-    
-        <link rel="stylesheet" href='/css/other.css'>
-    
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://naiba.fun/post/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://naiba.fun/post/"
+    }
+  ]
+}
+</script>
 </head>
 
-<body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="">
-                        九
-                    </a>
-                
-                <p class="description">人生如逆旅，我亦是行人</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="">Home</a>
-                    
-                    <a  href="/tools/" title="工具">工具</a>
-                    
-                    <a  href="/archives/" title="归档">归档</a>
-                    
-                    <a  href="/about/" title="关于">关于</a>
-                    
-                </nav>
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://naiba.fun" accesskey="h" title="九 (Alt + H)">九</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </div>
-    </div>
+        <ul id="menu">
+            <li>
+                <a href="https://naiba.fun/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
 </header>
 
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Test
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>你好，我是第一篇博客。</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-10 07:22:37 +0800 CST'>一月 10, 2024</span>&nbsp;·&nbsp;1 分钟</footer>
+  <a class="entry-link" aria-label="post link to Test" href="https://naiba.fun/post/tech/test/"></a>
+</article>
 
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/" title="Dvwa靶场试炼" target="_blank">Dvwa靶场试炼</a>
-            </h1>
-        </header>
-        
-  <time datetime="2024-01-08T01:36:46Z" class="post-meta meta-date dt-published">
-    2024-01-08
-  </time>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dvwa靶场试炼
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-08 09:36:46 +0800 CST'>一月 8, 2024</span>&nbsp;·&nbsp;0 分钟</footer>
+  <a class="entry-link" aria-label="post link to Dvwa靶场试炼" href="https://naiba.fun/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/"></a>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Centos搭建gogs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>gogs官网 https://gogs.io/ 1.安装git yum install -y git 2.下载git,可以去官网下载 wget https://dl.gogs.io/0.13.0/gogs_0.13.0_linux_amd64.tar.gz #默认端口3000 nohup ./gogs web &amp;&gt;/dev/null &amp;</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-24 10:23:04 +0800 CST'>五月 24, 2023</span>&nbsp;·&nbsp;1 分钟</footer>
+  <a class="entry-link" aria-label="post link to Centos搭建gogs" href="https://naiba.fun/post/centos%E6%90%AD%E5%BB%BAgogs/"></a>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">spring boot集成jaeger实现链路管理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>环境：
+spring boot:2.6.2
+opentracing-spring-jaeger-cloud-starter:3.2.2
+jaeger-client:1.6.0
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-05 13:58:53 +0800 CST'>五月 5, 2023</span>&nbsp;·&nbsp;1 分钟</footer>
+  <a class="entry-link" aria-label="post link to spring boot集成jaeger实现链路管理" href="https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/"></a>
+</article>
 
-        <div class="post-content">
-            ……
-        </div>
-        <p class="readmore"><a href="/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/centos%E6%90%AD%E5%BB%BAgogs/" title="Centos搭建gogs" target="_blank">Centos搭建gogs</a>
-            </h1>
-        </header>
-        
-  <time datetime="2023-05-24T02:23:04Z" class="post-meta meta-date dt-published">
-    2023-05-24
-  </time>
-
-
-
-        <div class="post-content">
-            gogs官网 https://gogs.io/ 1.安装git yum install -y git 2.下载git,可以去官网下载 wget https://dl.gogs.io/0.13.0/gogs_0.13.0_linux_amd64.tar.gz #默认端口3000 nohup ./gogs web &amp;&gt;/dev/null &amp;……
-        </div>
-        <p class="readmore"><a href="/post/centos%E6%90%AD%E5%BB%BAgogs/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" title="spring boot集成jaeger实现链路管理" target="_blank">spring boot集成jaeger实现链路管理</a>
-            </h1>
-        </header>
-        
-  <time datetime="2023-05-05T05:58:53Z" class="post-meta meta-date dt-published">
-    2023-05-05
-  </time>
-
-
-
-        <div class="post-content">
-            <p>环境：<br>
-spring boot:2.6.2<br>
-opentracing-spring-jaeger-cloud-starter:3.2.2<br>
-jaeger-client:1.6.0</p>……
-        </div>
-        <p class="readmore"><a href="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/singleton/" title="Singleton单例" target="_blank">Singleton单例</a>
-            </h1>
-        </header>
-        
-  <time datetime="2022-11-26T14:16:06Z" class="post-meta meta-date dt-published">
-    2022-11-26
-  </time>
-
-
-
-        <div class="post-content">
-            //多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for……
-        </div>
-        <p class="readmore"><a href="/post/singleton/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/tips/idea-annotation/" title="Idea Annotation" target="_blank">Idea Annotation</a>
-            </h1>
-        </header>
-        
-  <time datetime="2022-01-11T00:25:17Z" class="post-meta meta-date dt-published">
-    2022-01-11
-  </time>
-
-
-
-        <div class="post-content">
-            ……
-        </div>
-        <p class="readmore"><a href="/post/tips/idea-annotation/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复" target="_blank">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-12-25T17:14:25Z" class="post-meta meta-date dt-published">
-    2021-12-26
-  </time>
-
-
-
-        <div class="post-content">
-            下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache……
-        </div>
-        <p class="readmore"><a href="/post/log4j2_CVE-2021-44228-02/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/brew/" title="Brew安装" target="_blank">Brew安装</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-05-07T07:31:37Z" class="post-meta meta-date dt-published">
-    2021-05-07
-  </time>
-
-
-
-        <div class="post-content">
-            简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、……
-        </div>
-        <p class="readmore"><a href="/post/brew/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/mcordova_vue_android/" title="cordova把vue项目打包成android" target="_blank">cordova把vue项目打包成android</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-04-30T08:10:36Z" class="post-meta meta-date dt-published">
-    2021-04-30
-  </time>
-
-
-
-        <div class="post-content">
-            1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordo……
-        </div>
-        <p class="readmore"><a href="/post/mcordova_vue_android/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="/post/my-first-blog/" title="github上创建自己的博客" target="_blank">github上创建自己的博客</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-04-21T06:28:08Z" class="post-meta meta-date dt-published">
-    2021-04-21
-  </time>
-
-
-
-        <div class="post-content">
-            提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/boo……
-        </div>
-        <p class="readmore"><a href="/post/my-first-blog/" target="_blank">Continue reading</a></p>
-    </article>
-    
-    
-    
-
-
-
-
-
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2024 <a href="">九 By Tsui</a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">kali配置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>服务器信息 kali 登录 root/123456 haha/123456 mariaDB root/xujuntao systemctl status apache2 #数据库apache2用户的是自带的 数据库是mariaDB systemctl status mysqld 重启之后,需要先停止mariaDB 启动小皮my...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-11-26 22:16:06 +0800 CST'>十一月 26, 2022</span>&nbsp;·&nbsp;9 分钟</footer>
+  <a class="entry-link" aria-label="post link to kali配置" href="https://naiba.fun/post/kali/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://naiba.fun/post/page/2/">下一页&nbsp;&nbsp;»
+    </a>
+  </nav>
 </footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-    <script src='/js/douban.js'></script>
-
-                </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title">Latest articles</h3>
-<ul class="widget-list">
+    </main>
     
-    <li>
-        <a href="/post/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/" title="Dvwa靶场试炼" target="_blank">Dvwa靶场试炼</a>
-    </li>
-    
-    <li>
-        <a href="/post/centos%E6%90%AD%E5%BB%BAgogs/" title="Centos搭建gogs" target="_blank">Centos搭建gogs</a>
-    </li>
-    
-    <li>
-        <a href="/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/" title="spring boot集成jaeger实现链路管理" target="_blank">spring boot集成jaeger实现链路管理</a>
-    </li>
-    
-    <li>
-        <a href="/post/singleton/" title="Singleton单例" target="_blank">Singleton单例</a>
-    </li>
-    
-    <li>
-        <a href="/post/tips/idea-annotation/" title="Idea Annotation" target="_blank">Idea Annotation</a>
-    </li>
-    
-    <li>
-        <a href="/post/log4j2_CVE-2021-44228-02/" title="Apache Log4j2 Jndi RCE 高危漏洞重现/修复" target="_blank">Apache Log4j2 Jndi RCE 高危漏洞重现/修复</a>
-    </li>
-    
-    <li>
-        <a href="/post/brew/" title="Brew安装" target="_blank">Brew安装</a>
-    </li>
-    
-    <li>
-        <a href="/post/mcordova_vue_android/" title="cordova把vue项目打包成android" target="_blank">cordova把vue项目打包成android</a>
-    </li>
-    
-    <li>
-        <a href="/post/my-first-blog/" title="github上创建自己的博客" target="_blank">github上创建自己的博客</a>
-    </li>
-    
-</ul>
-    </section>
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://naiba.fun">九</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-    
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
-<ul class="widget-list">
-    
-</ul>
-    </section>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
-<div class="tagcloud">
-    
-</div>
-    </section>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
-    
-<section class="widget">
-    <h3 class="widget-title">Links</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="https://www.naiba.fun/" title="小九的博客">小九的博客</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://github" title="GitHub">GitHub</a>
-        </li>
-        
-    </ul>
-</section>
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-    <section class="widget">
-        <h3 class="widget-title">Meta</h3>
-        <ul class="widget-list">
-            <li><a href="index.xml">RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
+</script>
 </body>
 
 </html>

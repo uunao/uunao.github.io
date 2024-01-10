@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teches on 九</title>
+    <link>https://naiba.fun/tech/</link>
+    <description>Recent content in Teches on 九</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 10 Jan 2024 07:22:37 +0800</lastBuildDate>
+    <atom:link href="https://naiba.fun/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://naiba.fun/tech/test/</link>
+      <pubDate>Wed, 10 Jan 2024 07:22:37 +0800</pubDate>
+      <guid>https://naiba.fun/tech/test/</guid>
+      <description>你好，我是第一篇博客。</description>
+    </item>
+  </channel>
+</rss>
