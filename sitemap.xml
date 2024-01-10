@@ -2,62 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://naiba.fun/post/</loc>
-    <lastmod>2024-01-10T07:22:37+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/post/tech/test/</loc>
-    <lastmod>2024-01-10T07:22:37+08:00</lastmod>
-  </url><url>
     <loc>https://naiba.fun/</loc>
-    <lastmod>2024-01-10T07:22:37+08:00</lastmod>
+    <lastmod>2024-01-08T09:36:46+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/categories/</loc>
+    <lastmod>2024-01-08T09:36:46+08:00</lastmod>
   </url><url>
     <loc>https://naiba.fun/post/security/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</loc>
     <lastmod>2024-01-08T09:36:46+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/centos%E6%90%AD%E5%BB%BAgogs/</loc>
+    <loc>https://naiba.fun/categories/dvwa%E9%9D%B6%E5%9C%BA%E9%80%9A%E5%85%B3/</loc>
+    <lastmod>2024-01-08T09:36:46+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/</loc>
+    <lastmod>2024-01-08T09:36:46+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/linux/centos%E6%90%AD%E5%BB%BAgogs/</loc>
     <lastmod>2023-05-24T10:23:04+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</loc>
+    <loc>https://naiba.fun/categories/linux%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2023-05-24T10:23:04+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/tech/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</loc>
     <lastmod>2023-05-05T13:58:53+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/tags/blockchain/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/categories/blockchain/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/categories/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/tags/crypto/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/post/security/kali/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
+    <loc>https://naiba.fun/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/</loc>
+    <lastmod>2023-05-05T13:58:53+08:00</lastmod>
   </url><url>
     <loc>https://naiba.fun/post/tech/singleton/</loc>
-    <lastmod>2022-11-26T22:16:06+08:00</lastmod>
-  </url><url>
-    <loc>https://naiba.fun/tags/</loc>
     <lastmod>2022-11-26T22:16:06+08:00</lastmod>
   </url><url>
     <loc>https://naiba.fun/post/tips/idea-annotation/</loc>
     <lastmod>2022-01-11T08:25:17+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/log4j2_cve-2021-44228-02/</loc>
+    <loc>https://naiba.fun/categories/tips/</loc>
+    <lastmod>2022-01-11T08:25:17+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/security/log4j2_cve-2021-44228-02/</loc>
     <lastmod>2021-12-26T01:14:25+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/brew/</loc>
+    <loc>https://naiba.fun/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2021-12-26T01:14:25+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/mac/brew/</loc>
     <lastmod>2021-05-07T15:31:37+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/mcordova_vue_android/</loc>
+    <loc>https://naiba.fun/categories/mac/</loc>
+    <lastmod>2021-05-07T15:31:37+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/post/tech/mcordova_vue_android/</loc>
     <lastmod>2021-04-30T16:10:36+08:00</lastmod>
   </url><url>
-    <loc>https://naiba.fun/post/my-first-blog/</loc>
+    <loc>https://naiba.fun/post/firstblog/</loc>
     <lastmod>2021-04-21T14:28:08+08:00</lastmod>
   </url><url>
     <loc>https://naiba.fun/about/</loc>
     <lastmod>2020-02-02T16:23:32+08:00</lastmod>
+  </url><url>
+    <loc>https://naiba.fun/tags/</loc>
   </url><url>
     <loc>https://naiba.fun/archives/</loc>
   </url><url>

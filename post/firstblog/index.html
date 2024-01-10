@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>github上创建自己的博客 | ----.</title>
+<meta name="keywords" content="">
+<meta name="description" content="提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Gi">
+<meta name="author" content="">
+<link rel="canonical" href="https://naiba.fun/post/firstblog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4d3df9a657152b4cde706ac557fea6f36b32820d2c37a05a14b1cdb1f1517441.css" integrity="sha256-TT35plcVK0zecGrFV/6m82sygg0sN6BaFLHNsfFRdEE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://naiba.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://naiba.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://naiba.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://naiba.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://naiba.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="github上创建自己的博客" />
+<meta property="og:description" content="提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Gi" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://naiba.fun/post/firstblog/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-21T14:28:08+08:00" />
+<meta property="article:modified_time" content="2021-04-21T14:28:08+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="github上创建自己的博客"/>
+<meta name="twitter:description" content="提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Gi"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://naiba.fun/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "github上创建自己的博客",
+      "item": "https://naiba.fun/post/firstblog/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "github上创建自己的博客",
+  "name": "github上创建自己的博客",
+  "description": "提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Gi",
+  "keywords": [
+    
+  ],
+  "articleBody": "提示：教程默认你已经安装了 git,hugo 安装参考官网：\ngit地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Git\nhugo地址：https://gohugo.io/getting-started/installing/\nmac用户可以使用Homebrew安装\nbrew install git: brew install hugo 下面会分四步介绍 一.配置github 1.注册账号 GitHub地址：https://github.com/\n2.新建博客发布仓库\n这里建议新建2个仓库，和fork一个主题\n一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)\n新建 uunao.github.io\nhttps://github.com/uunao/uunao.github.io.git\nSettings –\u003eGitHub Pages\n3.新建博客源代码 myblog https://github.com/uunao/myblog.git\n4.fork我们相中的主题到本地，方便以后自己修改 这个我的博客模板，用的飞雪无情的：https://github.com/uunao/maupassant-hugo.git\n也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。\nhugo主题地址：https://themes.gohugo.io/\n二.配置本地 1.新建站点\nhugo new site myblog 2.新建博客目录\ncd myblog 3.初花git\ngit init 4.clone 主题为子模块\ngit submodule add https://github.com/uunao/maupassant-hugo.git themes/maupassant 5.复制主题配置文件\ncp themes/maupassant/exampleSite/config.toml . 6.编辑配置文件\nvim config.toml baseURL = \"uunao.github.io\" #我们申请的github发布仓库地址 languageCode = \"zh-CN\" title = \"小九的博客\" #博客的名字 theme = \"maupassant\" #主题名称 -无需修改 三.发布 1.预览效果\nhugo server http://localhost:1313\n2.发布博文\n把博客仓库已子模块的形式添加到public下\ngit submodule add https://github.com/uunao/uunao.github.io.git public\n执行 hugo 命令\n默认会在public下生成很多编译好的文件\ngit add * git commit -m \"init\" git push 3.最后把源码提交到myblog仓库备份\ncd myblog git remote add origin https://github.com/uunao/blog.git git add . git commint -m \"init\" #init 是每次提交的备注，可自定义 git checkout main git branch --set-upstream-to=origin/main main 四.写文章并发布 1.新增博文 –默认会生成到content目录下面 (如果报错就cd到上级目录)\nhugo new content/post/my-first-blog.md\n2.编辑文件，把草稿状态改成false。文章才能显示\nvim content/post/my-first-blog.md title: \"My First Blog\" date: 2021-04-21T14:28:08+08:00 draft: false #需要改成false 3.预览效果 hugo server\n4.生成最终需要发布的页面 hugo\n5.提交到博客仓库\ncd public #进入myblo/public目录下 git add . git commit -m \"my first blog\" git push 6.提交源码到源码仓库\ncd .. #定位到myblog目录下 git add . git commit -m \"my first blog\" git push 五.git提交异常 git push 根据提示执行,如果又报如下图错误 git push --set-upstream origin main 先执行 git pull --rebase origin master #远程库中的更新合并到本地库中,然后在把刚刚提交的合并在一起 再执行上面的命令就不报错了 git push --set-upstream origin main #把本地分支合并到main上 ",
+  "wordCount" : "1021",
+  "inLanguage": "zh",
+  "datePublished": "2021-04-21T14:28:08+08:00",
+  "dateModified": "2021-04-21T14:28:08+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://naiba.fun/post/firstblog/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "----.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://naiba.fun/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://naiba.fun" accesskey="h" title="----. (Alt + H)">----.</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://naiba.fun/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://naiba.fun/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      github上创建自己的博客
+    </h1>
+    <div class="post-meta"><span title='2021-04-21 14:28:08 +0800 CST'>四月 21, 2021</span>&nbsp;·&nbsp;3 分钟
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%8b%e9%9d%a2%e4%bc%9a%e5%88%86%e5%9b%9b%e6%ad%a5%e4%bb%8b%e7%bb%8d" aria-label="下面会分四步介绍">下面会分四步介绍</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80%e9%85%8d%e7%bd%aegithub" aria-label="一.配置github">一.配置github</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e9%85%8d%e7%bd%ae%e6%9c%ac%e5%9c%b0" aria-label="二.配置本地">二.配置本地</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e5%8f%91%e5%b8%83" aria-label="三.发布">三.发布</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e5%86%99%e6%96%87%e7%ab%a0%e5%b9%b6%e5%8f%91%e5%b8%83" aria-label="四.写文章并发布">四.写文章并发布</a></li>
+                <li>
+                    <a href="#%e4%ba%94git%e6%8f%90%e4%ba%a4%e5%bc%82%e5%b8%b8" aria-label="五.git提交异常">五.git提交异常</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><strong>提示</strong>：教程默认你已经安装了 git,hugo
+安装参考官网：<br>
+git地址：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="Title">https://git-scm.com/book/zh/v2/起步-安装-Git-Git</a><br>
+hugo地址：<a href="https://gohugo.io/getting-started/installing/" title="Title">https://gohugo.io/getting-started/installing/</a></p>
+<p>mac用户可以使用Homebrew安装</p>
+<pre tabindex="0"><code>brew install git:
+brew install hugo
+</code></pre><hr>
+<h1 id="下面会分四步介绍">下面会分四步介绍<a hidden class="anchor" aria-hidden="true" href="#下面会分四步介绍">#</a></h1>
+<h2 id="一配置github">一.配置github<a hidden class="anchor" aria-hidden="true" href="#一配置github">#</a></h2>
+<p>1.注册账号 GitHub地址：<a href="https://github.com/" title="Title">https://github.com/</a><br>
+2.新建博客发布仓库<br>
+这里建议新建2个仓库，和fork一个主题<br>
+一个是用于发布我们博文用的仓库，一个是我们存放源码仓库，fork的主题是方便以后修改样式(可做可不做)<br>
+新建 uunao.github.io<br>
+<a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a><br>
+Settings &ndash;&gt;GitHub Pages</p>
+<p>3.新建博客源代码 <br>
+myblog <a href="https://github.com/uunao/myblog.git">https://github.com/uunao/myblog.git</a></p>
+<p>4.fork我们相中的主题到本地，方便以后自己修改 <br>
+这个我的博客模板，用的飞雪无情的：https://github.com/uunao/maupassant-hugo.git</p>
+<p>也可以到官网或者网上搜索大神们写的主题，保存到自己的github上。<br>
+hugo主题地址：<a href="https://themes.gohugo.io/" title="主题地址">https://themes.gohugo.io/</a></p>
+<h2 id="二配置本地">二.配置本地<a hidden class="anchor" aria-hidden="true" href="#二配置本地">#</a></h2>
+<p>1.新建站点</p>
+<pre tabindex="0"><code>hugo new site myblog    
+</code></pre><p>2.新建博客目录</p>
+<pre tabindex="0"><code>cd myblog   
+</code></pre><p>3.初花git</p>
+<pre tabindex="0"><code>git init    
+</code></pre><p>4.clone 主题为子模块</p>
+<pre tabindex="0"><code>git submodule add https://github.com/uunao/maupassant-hugo.git themes/maupassant    
+</code></pre><p>5.复制主题配置文件</p>
+<pre tabindex="0"><code>cp themes/maupassant/exampleSite/config.toml .  
+</code></pre><p>6.编辑配置文件</p>
+<pre tabindex="0"><code>vim config.toml
+
+baseURL = &#34;uunao.github.io&#34; #我们申请的github发布仓库地址
+languageCode = &#34;zh-CN&#34;
+title = &#34;小九的博客&#34;       #博客的名字
+theme = &#34;maupassant&#34;     #主题名称 -无需修改
+</code></pre><h2 id="三发布">三.发布<a hidden class="anchor" aria-hidden="true" href="#三发布">#</a></h2>
+<p>1.预览效果<br>
+hugo server
+http://localhost:1313</p>
+<p>2.发布博文<br>
+把博客仓库已子模块的形式添加到public下<br>
+git submodule add <a href="https://github.com/uunao/uunao.github.io.git">https://github.com/uunao/uunao.github.io.git</a> public<br>
+执行 hugo 命令<br>
+默认会在public下生成很多编译好的文件</p>
+<pre tabindex="0"><code>git add *
+git commit -m &#34;init&#34;
+git push  
+</code></pre><p>3.最后把源码提交到myblog仓库备份</p>
+<pre tabindex="0"><code>cd myblog   
+git remote add origin https://github.com/uunao/blog.git 
+git add .   
+git commint -m &#34;init&#34;  #init 是每次提交的备注，可自定义 
+git checkout main   
+git branch --set-upstream-to=origin/main main   
+</code></pre><h2 id="四写文章并发布">四.写文章并发布<a hidden class="anchor" aria-hidden="true" href="#四写文章并发布">#</a></h2>
+<p>1.新增博文 &ndash;默认会生成到content目录下面 (如果报错就cd到上级目录)<br>
+hugo new content/post/my-first-blog.md</p>
+<p>2.编辑文件，把草稿状态改成false。文章才能显示</p>
+<pre tabindex="0"><code>vim content/post/my-first-blog.md 
+
+title: &#34;My First Blog&#34;
+date: 2021-04-21T14:28:08+08:00
+draft: false   #需要改成false
+</code></pre><p>3.预览效果
+hugo server</p>
+<p>4.生成最终需要发布的页面
+hugo</p>
+<p>5.提交到博客仓库</p>
+<pre tabindex="0"><code>cd public #进入myblo/public目录下
+git add .
+git commit -m &#34;my first blog&#34;
+git push
+</code></pre><p>6.提交源码到源码仓库</p>
+<pre tabindex="0"><code>cd ..  #定位到myblog目录下
+git add .
+git commit -m &#34;my first blog&#34;
+git push
+</code></pre><h2 id="五git提交异常">五.git提交异常<a hidden class="anchor" aria-hidden="true" href="#五git提交异常">#</a></h2>
+<pre tabindex="0"><code>git push
+</code></pre><p><img loading="lazy" src="/images/my-first-blog/20190623184825880.png" alt=""  />
+</p>
+<pre tabindex="0"><code>根据提示执行,如果又报如下图错误 
+git push --set-upstream origin main 
+</code></pre><p><img loading="lazy" src="/images/my-first-blog/20210422102234.jpg" alt=""  />
+</p>
+<pre tabindex="0"><code>先执行
+git pull --rebase origin master  #远程库中的更新合并到本地库中,然后在把刚刚提交的合并在一起
+
+再执行上面的命令就不报错了
+git push --set-upstream origin main  #把本地分支合并到main上
+ 
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://naiba.fun/post/tech/mcordova_vue_android/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>cordova把vue项目打包成android</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://naiba.fun">----.</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

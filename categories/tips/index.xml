@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tips on ----.</title>
+    <link>https://naiba.fun/categories/tips/</link>
+    <description>Recent content in tips on ----.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 11 Jan 2022 08:25:17 +0800</lastBuildDate>
+    <atom:link href="https://naiba.fun/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Idea Annotation</title>
+      <link>https://naiba.fun/post/tips/idea-annotation/</link>
+      <pubDate>Tue, 11 Jan 2022 08:25:17 +0800</pubDate>
+      <guid>https://naiba.fun/post/tips/idea-annotation/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

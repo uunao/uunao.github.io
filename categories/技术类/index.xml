@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术类 on ----.</title>
+    <link>https://naiba.fun/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/</link>
+    <description>Recent content in 技术类 on ----.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 05 May 2023 13:58:53 +0800</lastBuildDate>
+    <atom:link href="https://naiba.fun/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring boot集成jaeger实现链路管理</title>
+      <link>https://naiba.fun/post/tech/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
+      <pubDate>Fri, 05 May 2023 13:58:53 +0800</pubDate>
+      <guid>https://naiba.fun/post/tech/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
+      <description>&lt;p&gt;环境：&lt;br&gt;
+spring boot:2.6.2&lt;br&gt;
+opentracing-spring-jaeger-cloud-starter:3.2.2&lt;br&gt;
+jaeger-client:1.6.0&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Singleton单例</title>
+      <link>https://naiba.fun/post/tech/singleton/</link>
+      <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
+      <guid>https://naiba.fun/post/tech/singleton/</guid>
+      <description>//多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for (int i = 0; i &amp;lt; 10; i++) { new Thread(() -&amp;gt; System.out.println(Singleton.getInstance().hashCode())).start(); } } }</description>
+    </item>
+    <item>
+      <title>cordova把vue项目打包成android</title>
+      <link>https://naiba.fun/post/tech/mcordova_vue_android/</link>
+      <pubDate>Fri, 30 Apr 2021 16:10:36 +0800</pubDate>
+      <guid>https://naiba.fun/post/tech/mcordova_vue_android/</guid>
+      <description>1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordova项目 cordova create androidTest io.cordova.hellocordova CordovaApp androidTest 是创建应用程序的目录</description>
+    </item>
+  </channel>
+</rss>

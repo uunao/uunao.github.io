@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on ----.</title>
+    <link>https://naiba.fun/categories/mac/</link>
+    <description>Recent content in mac on ----.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 07 May 2021 15:31:37 +0800</lastBuildDate>
+    <atom:link href="https://naiba.fun/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brew安装</title>
+      <link>https://naiba.fun/post/mac/brew/</link>
+      <pubDate>Fri, 07 May 2021 15:31:37 +0800</pubDate>
+      <guid>https://naiba.fun/post/mac/brew/</guid>
+      <description>简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、更新、查看、搜索等很多实用的功能，通过简</description>
+    </item>
+  </channel>
+</rss>

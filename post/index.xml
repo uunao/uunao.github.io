@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 九</title>
+    <title>Posts on ----.</title>
     <link>https://naiba.fun/post/</link>
-    <description>Recent content in Posts on 九</description>
+    <description>Recent content in Posts on ----.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 10 Jan 2024 07:22:37 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jan 2024 09:36:46 +0800</lastBuildDate>
     <atom:link href="https://naiba.fun/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>https://naiba.fun/post/tech/test/</link>
-      <pubDate>Wed, 10 Jan 2024 07:22:37 +0800</pubDate>
-      <guid>https://naiba.fun/post/tech/test/</guid>
-      <description>你好，我是第一篇博客。</description>
-    </item>
     <item>
       <title>Dvwa靶场试炼</title>
       <link>https://naiba.fun/post/security/dvwa%E9%9D%B6%E5%9C%BA%E8%AF%95%E7%82%BC/</link>
@@ -24,34 +17,27 @@
     </item>
     <item>
       <title>Centos搭建gogs</title>
-      <link>https://naiba.fun/post/centos%E6%90%AD%E5%BB%BAgogs/</link>
+      <link>https://naiba.fun/post/linux/centos%E6%90%AD%E5%BB%BAgogs/</link>
       <pubDate>Wed, 24 May 2023 10:23:04 +0800</pubDate>
-      <guid>https://naiba.fun/post/centos%E6%90%AD%E5%BB%BAgogs/</guid>
+      <guid>https://naiba.fun/post/linux/centos%E6%90%AD%E5%BB%BAgogs/</guid>
       <description>gogs官网 https://gogs.io/ 1.安装git yum install -y git 2.下载git,可以去官网下载 wget https://dl.gogs.io/0.13.0/gogs_0.13.0_linux_amd64.tar.gz #默认端口3000 nohup ./gogs web &amp;amp;&amp;gt;/dev/null &amp;amp;</description>
     </item>
     <item>
       <title>spring boot集成jaeger实现链路管理</title>
-      <link>https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
+      <link>https://naiba.fun/post/tech/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</link>
       <pubDate>Fri, 05 May 2023 13:58:53 +0800</pubDate>
-      <guid>https://naiba.fun/post/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
+      <guid>https://naiba.fun/post/tech/9_springboot%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AAjaeger/</guid>
       <description>&lt;p&gt;环境：&lt;br&gt;
 spring boot:2.6.2&lt;br&gt;
 opentracing-spring-jaeger-cloud-starter:3.2.2&lt;br&gt;
 jaeger-client:1.6.0&lt;/p&gt;</description>
     </item>
     <item>
-      <title>kali配置</title>
-      <link>https://naiba.fun/post/security/kali/</link>
-      <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
-      <guid>https://naiba.fun/post/security/kali/</guid>
-      <description>服务器信息 kali 登录 root/123456 haha/123456 mariaDB root/xujuntao systemctl status apache2 #数据库apache2用户的是自带的 数据库是mariaDB systemctl status mysqld 重启之后,需要先停止mariaDB 启动小皮my</description>
-    </item>
-    <item>
       <title>Singleton单例</title>
       <link>https://naiba.fun/post/tech/singleton/</link>
       <pubDate>Sat, 26 Nov 2022 22:16:06 +0800</pubDate>
       <guid>https://naiba.fun/post/tech/singleton/</guid>
-      <description>11 22 33 //多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for (int i = 0; i &amp;lt; 10; i++) { new Thread(() -&amp;gt; System.out.println(Singleton.getInstance().hashCode())).start(); } } }</description>
+      <description>//多线程-非单例 public class Singleton { private static Singleton INSTANCE; public static Singleton getInstance() { if (isNull(INSTANCE)) { try { Thread.sleep(1); INSTANCE = new Singleton(); } catch (InterruptedException e) { e.printStackTrace(); } } return INSTANCE; } public static void main(String[] args) { for (int i = 0; i &amp;lt; 10; i++) { new Thread(() -&amp;gt; System.out.println(Singleton.getInstance().hashCode())).start(); } } }</description>
     </item>
     <item>
       <title>Idea Annotation</title>
@@ -62,30 +48,30 @@ jaeger-client:1.6.0&lt;/p&gt;</description>
     </item>
     <item>
       <title>Apache Log4j2 Jndi RCE 高危漏洞重现/修复</title>
-      <link>https://naiba.fun/post/log4j2_cve-2021-44228-02/</link>
+      <link>https://naiba.fun/post/security/log4j2_cve-2021-44228-02/</link>
       <pubDate>Sun, 26 Dec 2021 01:14:25 +0800</pubDate>
-      <guid>https://naiba.fun/post/log4j2_cve-2021-44228-02/</guid>
+      <guid>https://naiba.fun/post/security/log4j2_cve-2021-44228-02/</guid>
       <description>下面会分四步介绍 概述 1.目的 模拟攻击自有项目，了解原理，修复漏洞 2.漏洞概述 该漏洞是由于Apache Log4j2某些功能存在递归解析功能，未</description>
     </item>
     <item>
       <title>Brew安装</title>
-      <link>https://naiba.fun/post/brew/</link>
+      <link>https://naiba.fun/post/mac/brew/</link>
       <pubDate>Fri, 07 May 2021 15:31:37 +0800</pubDate>
-      <guid>https://naiba.fun/post/brew/</guid>
+      <guid>https://naiba.fun/post/mac/brew/</guid>
       <description>简介 Homebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 和 linux 系统上的软件安装过程。 它拥有安装、卸载、更新、查看、搜索等很多实用的功能，通过简</description>
     </item>
     <item>
       <title>cordova把vue项目打包成android</title>
-      <link>https://naiba.fun/post/mcordova_vue_android/</link>
+      <link>https://naiba.fun/post/tech/mcordova_vue_android/</link>
       <pubDate>Fri, 30 Apr 2021 16:10:36 +0800</pubDate>
-      <guid>https://naiba.fun/post/mcordova_vue_android/</guid>
+      <guid>https://naiba.fun/post/tech/mcordova_vue_android/</guid>
       <description>1.安装 npm cordova npm install -g cordova 全局安装Cordova，可以通过cordova -v 来判断是否成功 2.创建cordova项目 cordova create androidTest io.cordova.hellocordova CordovaApp androidTest 是创建应用程序的目录</description>
     </item>
     <item>
       <title>github上创建自己的博客</title>
-      <link>https://naiba.fun/post/my-first-blog/</link>
+      <link>https://naiba.fun/post/firstblog/</link>
       <pubDate>Wed, 21 Apr 2021 14:28:08 +0800</pubDate>
-      <guid>https://naiba.fun/post/my-first-blog/</guid>
+      <guid>https://naiba.fun/post/firstblog/</guid>
       <description>提示：教程默认你已经安装了 git,hugo 安装参考官网： git地址：https://git-scm.com/book/zh/v2/起步-安装-Git-Gi</description>
     </item>
   </channel>
